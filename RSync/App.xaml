@@ -4,6 +4,5 @@
              xmlns:local="clr-namespace:RSync"
              StartupUri="Areas/MainWindow/Views/MainWindowV.xaml">
     <Application.Resources>
-         
     </Application.Resources>
 </Application>

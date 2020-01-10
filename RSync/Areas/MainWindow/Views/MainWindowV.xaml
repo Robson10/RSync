@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Title="{Binding WindowTitle}" Height="250" Width="400">
     <Window.DataContext>
-        <viewmodels:MainWindowVM/>
+        <viewmodels:MainWindowVM />
     </Window.DataContext>
     <DockPanel Background="DimGray">
-        <local:ToolBarV x:Name="ToolBarV" DockPanel.Dock="Top" Height="40" VerticalAlignment="Top"/>
+        <local:ToolBarV x:Name="ToolBarV" DockPanel.Dock="Top" Height="40" VerticalAlignment="Top" />
     </DockPanel>
 </Window>
