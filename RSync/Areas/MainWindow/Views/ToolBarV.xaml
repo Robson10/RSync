@@ -1,74 +1,74 @@
 ﻿<UserControl x:Class="RSync.Areas.MainWindow.Views.ToolBarV"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:RSync.Areas.MainWindow.Views"
              xmlns:viewmodels="clr-namespace:RSync.Areas.MainWindow.ViewModels"
              xmlns:localization="clr-namespace:RSync.AppResources.Localization;assembly=RSync.AppResources"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="40" d:DesignWidth="500">
     <UserControl.DataContext>
-        <viewmodels:ToolBarVM/>
+        <viewmodels:ToolBarVM />
     </UserControl.DataContext>
     <UserControl.Resources>
         <Style x:Key="ToolBarButtonStyle" TargetType="Button">
-            <Setter Property="Width" Value="40"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Margin" Value="0" />
         </Style>
         <Style x:Key="ImageStyle" TargetType="Image">
-            <Setter Property="Stretch" Value="Fill"/>
+            <Setter Property="Stretch" Value="Fill" />
         </Style>
     </UserControl.Resources>
-    <ToolBar DockPanel.Dock="Top" Background="DimGray"  >
-        <Button Command="{Binding AccountsCmd}" 
+    <ToolBar DockPanel.Dock="Top" Background="DimGray">
+        <Button Command="{Binding AccountsCmd}"
                 ToolTip="{x:Static localization:res.ttAccounts}" Style="{StaticResource ToolBarButtonStyle}">
-            <Image Source="pack://siteoforigin:,,,/Icons/Account.png" Style="{StaticResource ImageStyle}"/>
+            <Image Source="pack://siteoforigin:,,,/Icons/Account.png" Style="{StaticResource ImageStyle}" />
         </Button>
-        <Button Command="{Binding RefreshCmd}" 
+        <Button Command="{Binding RefreshCmd}"
                 ToolTip="{x:Static localization:res.ttRefresh}" Style="{StaticResource ToolBarButtonStyle}">
-            <Image Source="pack://siteoforigin:,,,/Icons/Refresh.png" Style="{StaticResource ImageStyle}"/>
+            <Image Source="pack://siteoforigin:,,,/Icons/Refresh.png" Style="{StaticResource ImageStyle}" />
         </Button>
-        <Button Command="{Binding StartCmd}" 
+        <Button Command="{Binding StartCmd}"
                 ToolTip="{x:Static localization:res.ttStart}" Style="{StaticResource ToolBarButtonStyle}"
                 Visibility="{Binding StartVisibility}">
-            <Image Source="pack://siteoforigin:,,,/Icons/Start.png" Style="{StaticResource ImageStyle}"/>
+            <Image Source="pack://siteoforigin:,,,/Icons/Start.png" Style="{StaticResource ImageStyle}" />
         </Button>
-        <Button Command="{Binding StopCmd}" 
+        <Button Command="{Binding StopCmd}"
                 ToolTip="{x:Static localization:res.ttStop}" Style="{StaticResource ToolBarButtonStyle}"
                 Visibility="{Binding StopVisibility}">
-            <Image Source="pack://siteoforigin:,,,/Icons/Stop.png" Style="{StaticResource ImageStyle}"/>
+            <Image Source="pack://siteoforigin:,,,/Icons/Stop.png" Style="{StaticResource ImageStyle}" />
         </Button>
-        <Separator/>
-        <Button Command="{Binding AddFileCmd}" 
+        <Separator />
+        <Button Command="{Binding AddFileCmd}"
                 ToolTip="{x:Static localization:res.ttAddFile}" Style="{StaticResource ToolBarButtonStyle}">
-            <Image Source="pack://siteoforigin:,,,/Icons/AddFile.png" Style="{StaticResource ImageStyle}"/>
+            <Image Source="pack://siteoforigin:,,,/Icons/AddFile.png" Style="{StaticResource ImageStyle}" />
         </Button>
-        <Button Command="{Binding AddFolderCmd}" 
+        <Button Command="{Binding AddFolderCmd}"
                 ToolTip="{x:Static localization:res.ttAddFolder}" Style="{StaticResource ToolBarButtonStyle}">
-            <Image Source="pack://siteoforigin:,,,/Icons/AddFolder.png" Style="{StaticResource ImageStyle}"/>
+            <Image Source="pack://siteoforigin:,,,/Icons/AddFolder.png" Style="{StaticResource ImageStyle}" />
         </Button>
-        <Button Command="{Binding ShowAllHiddenElementsCmd}" 
+        <Button Command="{Binding ShowAllHiddenElementsCmd}"
                 Visibility="{Binding ShowAllHiddenElementsVisibility}"
                 ToolTip="{x:Static localization:res.ttShowAllHiddenElements}" Style="{StaticResource ToolBarButtonStyle}">
-            <Image Source="pack://siteoforigin:,,,/Icons/Show.png" Style="{StaticResource ImageStyle}"/>
+            <Image Source="pack://siteoforigin:,,,/Icons/Show.png" Style="{StaticResource ImageStyle}" />
         </Button>
-        <Button Command="{Binding HideAllSelectedElementsCmd}" 
+        <Button Command="{Binding HideAllSelectedElementsCmd}"
                 Visibility="{Binding HideAllSelectedElementsVisibility}"
                 ToolTip="{x:Static localization:res.ttHideAllSelectedElements}" Style="{StaticResource ToolBarButtonStyle}">
-            <Image Source="pack://siteoforigin:,,,/Icons/Hide.png" Style="{StaticResource ImageStyle}"/>
+            <Image Source="pack://siteoforigin:,,,/Icons/Hide.png" Style="{StaticResource ImageStyle}" />
         </Button>
-        <Separator/>
-        <Image ToolTip="{x:Static localization:res.ttSynchronizationStatus}" 
-               Source="pack://siteoforigin:,,,/Icons/OkCloud.png" Style="{StaticResource ImageStyle}"/>
-        <Button Command="{Binding OptionsCmd}" 
+        <Separator />
+        <Image ToolTip="{x:Static localization:res.ttSynchronizationStatus}"
+               Source="pack://siteoforigin:,,,/Icons/OkCloud.png" Style="{StaticResource ImageStyle}" />
+        <Button Command="{Binding OptionsCmd}"
                 ToolTip="{x:Static localization:res.ttOptions}" Style="{StaticResource ToolBarButtonStyle}">
-            <Image Source="pack://siteoforigin:,,,/Icons/Options.png" Style="{StaticResource ImageStyle}"/>
+            <Image Source="pack://siteoforigin:,,,/Icons/Options.png" Style="{StaticResource ImageStyle}" />
         </Button>
-        <Button Command="{Binding AboutCmd}" 
+        <Button Command="{Binding AboutCmd}"
                 ToolTip="{x:Static localization:res.ttAbout}" Style="{StaticResource ToolBarButtonStyle}">
-            <Image Source="pack://siteoforigin:,,,/Icons/About.png" Style="{StaticResource ImageStyle}"/>
+            <Image Source="pack://siteoforigin:,,,/Icons/About.png" Style="{StaticResource ImageStyle}" />
         </Button>
     </ToolBar>
 </UserControl>
