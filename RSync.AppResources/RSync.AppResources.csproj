@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="Configuration\config.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>config.resx</DependentUpon>
+    </Compile>
     <Compile Update="Localization\res.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -13,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Configuration\config.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>config.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Localization\res.pl-PL.resx">
       <Generator></Generator>
     </EmbeddedResource>

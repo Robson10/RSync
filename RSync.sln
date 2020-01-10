@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSync", "RSync\RSync.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSync.AppResources", "RSync.AppResources\RSync.AppResources.csproj", "{FB8244CE-7423-4429-B97A-B4AF265777CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSync.Core", "RSync.Core\RSync.Core.csproj", "{F62F062B-177C-4C5F-B96D-83E4FB646026}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FB8244CE-7423-4429-B97A-B4AF265777CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB8244CE-7423-4429-B97A-B4AF265777CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB8244CE-7423-4429-B97A-B4AF265777CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F62F062B-177C-4C5F-B96D-83E4FB646026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F62F062B-177C-4C5F-B96D-83E4FB646026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F62F062B-177C-4C5F-B96D-83E4FB646026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F62F062B-177C-4C5F-B96D-83E4FB646026}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

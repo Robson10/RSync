@@ -61,11 +61,20 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configuration.
+        ///   Looks up a localized string similar to Abort.
         /// </summary>
-        public static string ConfigCatalogName {
+        public static string btnAbort {
             get {
-                return ResourceManager.GetString("ConfigCatalogName", resourceCulture);
+                return ResourceManager.GetString("btnAbort", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string btnSave {
+            get {
+                return ResourceManager.GetString("btnSave", resourceCulture);
             }
         }
         
@@ -88,24 +97,6 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Google.json.
-        /// </summary>
-        public static string GoogleCredentialsFileName {
-            get {
-                return ResourceManager.GetString("GoogleCredentialsFileName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to GoogleToken.json.
-        /// </summary>
-        public static string GoogleToken {
-            get {
-                return ResourceManager.GetString("GoogleToken", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to App language.
         /// </summary>
         public static string lblAppLanguage {
@@ -115,11 +106,13 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to New settings require restart the application.
+        ///
+        ///Do you want to restart the application?.
         /// </summary>
-        public static string Password {
+        public static string msgSettingsRequireRestartApplication {
             get {
-                return ResourceManager.GetString("Password", resourceCulture);
+                return ResourceManager.GetString("msgSettingsRequireRestartApplication", resourceCulture);
             }
         }
         
@@ -219,15 +212,6 @@ namespace RSync.AppResources.Localization {
         public static string ttSynchronizationStatus {
             get {
                 return ResourceManager.GetString("ttSynchronizationStatus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to RobertM.
-        /// </summary>
-        public static string UserLogin {
-            get {
-                return ResourceManager.GetString("UserLogin", resourceCulture);
             }
         }
     }
