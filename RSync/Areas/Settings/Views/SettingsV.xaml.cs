@@ -7,6 +7,9 @@ namespace RSync.Areas.Settings.Views
     /// </summary>
     public partial class SettingsV : Window
     {
+        /// <summary>
+        /// Default Settings view constructor.
+        /// </summary>
         public SettingsV()
         {
             InitializeComponent();

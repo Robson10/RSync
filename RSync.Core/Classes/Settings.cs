@@ -40,7 +40,7 @@ namespace RSync.Core.Classes
         public static Settings Initialize()
         {
             Settings settings = null;
-            string readText = File.ReadAllText(AppPaths.SettingsPath);
+            string readText = File.ReadAllText(AppPaths.SettingsFilePath);
 
             if (!string.IsNullOrEmpty(readText))
             {
@@ -65,7 +65,7 @@ namespace RSync.Core.Classes
         /// </summary>
         public void SaveChanges()
         {
-            SaveChanges(Singleton.Settings);
+            SaveChanges(this);
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace RSync.Core.Classes
             }
 
             string json = ObjectToJson.Serialize(settings);
-            File.WriteAllText(AppPaths.SettingsPath, json);
+            File.WriteAllText(AppPaths.SettingsFilePath, json);
         }
     }
 }

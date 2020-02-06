@@ -1,4 +1,6 @@
-﻿namespace RSync.Core.Classes
+﻿using System.Collections.Generic;
+
+namespace RSync.Core.Classes
 {
     /// <summary>
     /// Singleton class
@@ -25,6 +27,34 @@
                 return settings;
             }
             set => settings = value;
+        }
+
+        /// <summary>
+        /// Accounts
+        /// </summary>
+        private static List<Account> accounts;
+
+        /// <summary>
+        /// Settings property
+        /// </summary>
+        public static List<Account> Accounts
+        {
+            get
+            {
+                if (accounts == null)
+                {
+                    accounts = AccountInitialize();
+                }
+
+                return accounts;
+            }
+            set => accounts = value;
+        }
+
+        private static List<Account> AccountInitialize()
+        {
+
+            return new List<Account>();
         }
     }
 }

@@ -132,6 +132,12 @@
   <data name="Password" xml:space="preserve">
     <value />
   </data>
+  <data name="RsaPrivateKeyFileName" xml:space="preserve">
+    <value>RsaPrivateKey.json</value>
+  </data>
+  <data name="RsaPublicKeyFileName" xml:space="preserve">
+    <value>RsaPublicKey.json</value>
+  </data>
   <data name="SettingsFileName" xml:space="preserve">
     <value>Settings.json</value>
   </data>

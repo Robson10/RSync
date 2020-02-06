@@ -5,9 +5,16 @@ VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSync", "RSync\RSync.csproj", "{268E0754-4220-4CC0-BE8F-AD3420EC1992}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSync.AppResources", "RSync.AppResources\RSync.AppResources.csproj", "{FB8244CE-7423-4429-B97A-B4AF265777CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSync.AppResources", "RSync.AppResources\RSync.AppResources.csproj", "{FB8244CE-7423-4429-B97A-B4AF265777CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSync.Core", "RSync.Core\RSync.Core.csproj", "{F62F062B-177C-4C5F-B96D-83E4FB646026}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSync.Core", "RSync.Core\RSync.Core.csproj", "{F62F062B-177C-4C5F-B96D-83E4FB646026}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RSync.Theme", "RSync.Theme\RSync.Theme.csproj", "{A489ACEC-E90D-46AD-AF65-EC6D8434BE55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6FD25469-A7D3-4F2D-B971-D8C9DF5E889C}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +34,10 @@ Global
 		{F62F062B-177C-4C5F-B96D-83E4FB646026}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F62F062B-177C-4C5F-B96D-83E4FB646026}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F62F062B-177C-4C5F-B96D-83E4FB646026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A489ACEC-E90D-46AD-AF65-EC6D8434BE55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A489ACEC-E90D-46AD-AF65-EC6D8434BE55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A489ACEC-E90D-46AD-AF65-EC6D8434BE55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A489ACEC-E90D-46AD-AF65-EC6D8434BE55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

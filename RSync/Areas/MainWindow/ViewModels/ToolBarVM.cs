@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using RSync.Areas.Accounts.Views;
 using RSync.Areas.Settings.Views;
 using System.Windows;
 
@@ -240,6 +241,12 @@ namespace RSync.Areas.MainWindow.ViewModels
         /// </summary>
         private void Accounts()
         {
+            AccountsV accountsV = new AccountsV();
+            if(accountsV.ShowDialog() ==true)
+            {
+
+            }
+
             AccountsHandler?.Execute();
         }
 

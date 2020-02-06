@@ -4,5 +4,10 @@
              xmlns:local="clr-namespace:RSync"
              StartupUri="Areas/MainWindow/Views/MainWindowV.xaml">
     <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/RSync.Theme;component/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

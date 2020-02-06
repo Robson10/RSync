@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RSync.Areas.MainWindow.Views"
         xmlns:viewmodels="clr-namespace:RSync.Areas.MainWindow.ViewModels"
+        xmlns:localization="clr-namespace:RSync.AppResources.Localization;assembly=RSync.AppResources"
         mc:Ignorable="d"
-        Title="{Binding WindowTitle}" Height="250" Width="400">
+        Title="{x:Static localization:res.AppName}" Height="250" Width="400">
     <Window.DataContext>
         <viewmodels:MainWindowVM />
     </Window.DataContext>

@@ -8,10 +8,10 @@
         xmlns:viewmodels="clr-namespace:RSync.Areas.Settings.ViewModels"
         xmlns:Localization="clr-namespace:RSync.AppResources.Localization;assembly=RSync.AppResources"
         xmlns:Enumerations="clr-namespace:RSync.Core.Enumerations;assembly=RSync.Core"
-		xmlns:viewconverters="clr-namespace:RSync.Core.ViewConverters;assembly=RSync.Core"
+		xmlns:viewconverters="clr-namespace:RSync.ViewConverters"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="SettingsV" Height="450" Width="800">
+        Title="{x:Static Localization:res.WindowTitleSettings}" Height="450" Width="800">
     <Window.DataContext>
         <viewmodels:SettingsVM />
     </Window.DataContext>
