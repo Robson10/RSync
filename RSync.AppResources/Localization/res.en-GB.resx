@@ -117,11 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountsWindowTitle" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>RSync</value>
+  </data>
   <data name="btnAbort" xml:space="preserve">
     <value>Abort</value>
   </data>
+  <data name="btnAddAccount" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="btnEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="btnRemoveAccount" xml:space="preserve">
+    <value>Remove</value>
+  </data>
   <data name="btnSave" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="btnSuspend" xml:space="preserve">
+    <value>Suspend</value>
+  </data>
+  <data name="btnTestConnection" xml:space="preserve">
+    <value>Test connection</value>
+  </data>
+  <data name="colCustomName" xml:space="preserve">
+    <value>Custom name</value>
+  </data>
+  <data name="colLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="colServerName" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="colSuspended" xml:space="preserve">
+    <value>Suspended</value>
   </data>
   <data name="EnumAppLanguageEnglish" xml:space="preserve">
     <value>English</value>
@@ -129,37 +162,73 @@
   <data name="EnumAppLanguagePolish" xml:space="preserve">
     <value>Polish</value>
   </data>
+  <data name="enumServerGoogle" xml:space="preserve">
+    <value>Google</value>
+  </data>
+  <data name="errNotImplementedException" xml:space="preserve">
+    <value>Functionality is currently not available.</value>
+  </data>
+  <data name="ErrorFieldIsEmpty" xml:space="preserve">
+    <value>Field cannot be empty.</value>
+  </data>
   <data name="lblAppLanguage" xml:space="preserve">
     <value>App language</value>
+  </data>
+  <data name="lblCustomName" xml:space="preserve">
+    <value>Custom Name :</value>
+  </data>
+  <data name="lblLogin" xml:space="preserve">
+    <value>Login :</value>
+  </data>
+  <data name="lblPassword" xml:space="preserve">
+    <value>Password :</value>
+  </data>
+  <data name="lblServer" xml:space="preserve">
+    <value>Server :</value>
+  </data>
+  <data name="msgAccountDuplication" xml:space="preserve">
+    <value>An account was not added because an identical account has already exist.</value>
+  </data>
+  <data name="msgEmptyCustomName" xml:space="preserve">
+    <value>Custom name cannot be empty.</value>
+  </data>
+  <data name="msgEmptyLogin" xml:space="preserve">
+    <value>Login cannot be empty.</value>
+  </data>
+  <data name="msgEmptyPassword" xml:space="preserve">
+    <value>Password cannot be empty.</value>
   </data>
   <data name="msgSettingsRequireRestartApplication" xml:space="preserve">
     <value>New settings require restart the application.
 
 Do you want to restart the application?</value>
   </data>
+  <data name="msgTestConnectionConnected" xml:space="preserve">
+    <value>Test completed successfully.</value>
+  </data>
   <data name="ttAbout" xml:space="preserve">
-    <value>About</value>
+    <value>About.</value>
   </data>
   <data name="ttAccounts" xml:space="preserve">
-    <value>Accounts</value>
+    <value>Accounts.</value>
   </data>
   <data name="ttAddFile" xml:space="preserve">
-    <value>Add File</value>
+    <value>Add File.</value>
   </data>
   <data name="ttAddFolder" xml:space="preserve">
-    <value>Add Folder</value>
+    <value>Add Folder.</value>
   </data>
   <data name="ttHideAllSelectedElements" xml:space="preserve">
-    <value>Hide all selected files and folders</value>
+    <value>Hide all selected files and folders.</value>
   </data>
   <data name="ttOptions" xml:space="preserve">
-    <value>Options</value>
+    <value>Options.</value>
   </data>
   <data name="ttRefresh" xml:space="preserve">
-    <value>Refresh</value>
+    <value>Refresh.</value>
   </data>
   <data name="ttShowAllHiddenElements" xml:space="preserve">
-    <value>Show all hidden files and folders</value>
+    <value>Show all hidden files and folders.</value>
   </data>
   <data name="ttStart" xml:space="preserve">
     <value>Resume application working.</value>
@@ -168,6 +237,15 @@ Do you want to restart the application?</value>
     <value>Stop application working.</value>
   </data>
   <data name="ttSynchronizationStatus" xml:space="preserve">
-    <value>Synchronization status</value>
+    <value>Synchronization status.</value>
+  </data>
+  <data name="WindowTitleAccounts" xml:space="preserve">
+    <value>Pinned accounts</value>
+  </data>
+  <data name="WindowTitleAddAccount" xml:space="preserve">
+    <value>Add user account</value>
+  </data>
+  <data name="WindowTitleSettings" xml:space="preserve">
+    <value>Settings</value>
   </data>
 </root>

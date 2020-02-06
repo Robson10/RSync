@@ -1,0 +1,148 @@
+﻿<Window x:Class="RSync.Areas.Accounts.Views.AddAccountV"
+        x:Name="AddAccountWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RSync.Areas.Accounts.Views"
+        xmlns:localization="clr-namespace:RSync.AppResources.Localization;assembly=RSync.AppResources"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:Enumerations="clr-namespace:RSync.Core.Enumerations;assembly=RSync.Core"
+        xmlns:viewmodels="clr-namespace:RSync.Areas.Accounts.ViewModels"
+        xmlns:pba="clr-namespace:RSync.Helpers"
+        xmlns:viewconverters="clr-namespace:RSync.ViewConverters"
+        mc:Ignorable="d"
+        Title="{x:Static localization:res.WindowTitleAddAccount}" 
+        Height="350" Width="350" MinHeight="300" MinWidth="350">
+    <Window.DataContext>
+        <viewmodels:AddAccountVM/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ObjectDataProvider x:Key="Server" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="Enumerations:ServerType" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <viewconverters:EnumToResourceConverter x:Key="EnumToResourceConverter" />
+        <viewconverters:StringToForegroundConverter x:Key="StringToForeground"/>
+        <viewconverters:StringToVisibilityConverter x:Key="StringToVisibility"/>
+        <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="TextWrapping" Value="NoWrap" />
+            <Setter Property="AcceptsReturn" Value="False"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="ErrorTextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+            <Setter Property="IsEnabled" Value="False" />
+            <Setter Property="Foreground" Value="Red" />
+            <Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource Self},Path=Text,Converter={StaticResource StringToVisibility}}" />
+        </Style>
+        <Style TargetType="StackPanel" x:Key="TestPanel">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+        </Style>
+        <Style TargetType="StackPanel" x:Key="ButtonsPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+        <Style TargetType="StackPanel" x:Key="InputPanel">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+    </Window.Resources>
+    <DockPanel>
+        <Grid Margin="10" DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions >
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!--Server-->
+            <Label Grid.Row="0" Grid.Column="0"
+               Content="{x:Static localization:res.lblServer}" 
+               />
+            <ComboBox Grid.Row="0" Grid.Column="1"
+                  ItemsSource="{Binding Source={StaticResource Server}}"
+                  SelectedItem="{Binding SelectedServer,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                  />
+            <!--Login-->
+            <Label Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Right"
+               Content="{x:Static localization:res.lblLogin}"
+               />
+            <TextBox Grid.Row="1" Grid.Column="1"
+                 Text="{Binding Login,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 />
+            <TextBlock Grid.Row="2" Grid.Column="1"
+                   Style="{StaticResource ErrorTextBlock}"
+                   Text="{Binding ErrorLogin}" 
+                   />
+            <!--Password-->
+            <Label Grid.Row="3" Grid.Column="0"
+               Content="{x:Static localization:res.lblPassword}"
+               />
+            <PasswordBox Grid.Row="3" Grid.Column="1"
+                     pba:PasswordBoxAssistant.BindPassword="true"
+                     pba:PasswordBoxAssistant.BoundPassword="{Binding Password,ValidatesOnDataErrors=True,Mode=TwoWay}"
+                     />
+            <TextBlock Grid.Row="4" Grid.Column="1"
+                   Style="{StaticResource ErrorTextBlock}"
+                   Text="{Binding ErrorPassword}"
+                   />
+            <!--CustomName-->
+            <Label Grid.Row="5" Grid.Column="0"
+               Content="{x:Static localization:res.lblCustomName}" 
+               />
+            <TextBox Grid.Row="5" Grid.Column="1"
+                 Text="{Binding CustomName,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"
+                 />
+            <TextBlock Grid.Row="6" Grid.Column="1"
+                   Style="{StaticResource ErrorTextBlock}"
+                   Text="{Binding ErrorCustomName}"
+                   />
+        </Grid>
+
+        <StackPanel Style="{StaticResource TestPanel}">
+            <Button Width="100"
+                    Command="{Binding TestConnectionCmd}"
+                    Content="{x:Static localization:res.btnTestConnection}" 
+                    IsEnabled="{Binding TestConnectionIsEnabled}"
+                    />
+            <TextBlock Text="{Binding TestConnectionMessage}" 
+                       Foreground="{Binding TestConnectionMessage, Converter={StaticResource StringToForeground},ConverterParameter={x:Static localization:res.msgTestConnectionConnected}}"
+                       TextWrapping="Wrap"
+                       Visibility="{Binding TestConnectionMessage,Converter={StaticResource StringToVisibility}}"
+                       />
+        </StackPanel>
+        <StackPanel Style="{StaticResource ButtonsPanel}">
+            <Button IsDefault="True"
+                    Command="{Binding SaveCmd}"
+                    CommandParameter="{Binding ElementName=AddAccountWindow}"
+                    IsEnabled="{Binding IsCredentialsCorrect}"
+                    Content="{x:Static localization:res.btnSave}"/>
+            <Button IsCancel="True"
+                    Command="{Binding AbortCmd}"
+                    CommandParameter="{Binding ElementName=AddAccountWindow}"
+                    Content="{x:Static localization:res.btnAbort}"/>
+        </StackPanel>
+    </DockPanel>
+</Window>

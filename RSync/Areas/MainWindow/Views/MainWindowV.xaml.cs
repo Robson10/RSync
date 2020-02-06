@@ -7,6 +7,9 @@ namespace RSync.Areas.MainWindow.Views
     /// </summary>
     public partial class MainWindowV : Window
     {
+        /// <summary>
+        /// Default MainWindow view constructor.
+        /// </summary>
         public MainWindowV()
         {
             InitializeComponent();

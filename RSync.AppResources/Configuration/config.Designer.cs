@@ -106,6 +106,24 @@ namespace RSync.AppResources.Configuration {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RsaPrivateKey.json.
+        /// </summary>
+        public static string RsaPrivateKeyFileName {
+            get {
+                return ResourceManager.GetString("RsaPrivateKeyFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RsaPublicKey.json.
+        /// </summary>
+        public static string RsaPublicKeyFileName {
+            get {
+                return ResourceManager.GetString("RsaPublicKeyFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.json.
         /// </summary>
         public static string SettingsFileName {

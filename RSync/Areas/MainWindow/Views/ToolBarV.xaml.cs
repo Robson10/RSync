@@ -7,6 +7,9 @@ namespace RSync.Areas.MainWindow.Views
     /// </summary>
     public partial class ToolBarV : UserControl
     {
+        /// <summary>
+        /// Default ToolBar constructor.
+        /// </summary>
         public ToolBarV()
         {
             InitializeComponent();

@@ -1,0 +1,806 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RSync</name>
+    </assembly>
+    <members>
+        <member name="T:RSync.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:RSync.App.OnStartup(System.Windows.StartupEventArgs)">
+            <summary>
+            Startup method.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:RSync.App.SetCurrentAppCulture(RSync.Core.Enumerations.AppLanguage)">
+            <summary>
+            Application and Resource(res.resx) culture is set based on language parameter.
+            </summary>
+            <param name="language"></param>
+        </member>
+        <member name="M:RSync.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:RSync.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.Accounts.ViewModels.AccountsVM">
+            <summary>
+            View model used to handle account operations.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AccountsVM.AccountsWindowTitle">
+            <summary>
+            Window title.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AccountsVM.AccountsList">
+            <summary>
+            Propertis to list of pinned accounts to application.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AccountsVM.AddAccountCmd">
+            <summary>
+            Add new account command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AccountsVM.DeleteAccountCmd">
+            <summary>
+            Delete selected account command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AccountsVM.EditAccountCmd">
+            <summary>
+            Edit current account command.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Accounts.ViewModels.AccountsVM.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.Accounts.ViewModels.AddAccountVM">
+            <summary>
+            View model of Add Account view.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.errorLogin">
+            <summary>
+            Error message for login.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.errorPassword">
+            <summary>
+            Error message for password.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.errorCustomName">
+            <summary>
+            Error message for password.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.ErrorLogin">
+            <summary>
+            Property to error message displayed on error during Login control validation.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.ErrorPassword">
+            <summary>
+            Property to error message displayed on error during password control validation.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.ErrorCustomName">
+            <summary>
+            Property to error message displayed on error during CustomName control validation.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.Error">
+            <summary>
+            Default error property for IDataErrorInfo interface
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.Item(System.String)">
+            <summary>
+            Validation properties.
+            </summary>
+            <param name="propertyName">Name of property to validate.</param>
+            <returns></returns>
+        </member>
+        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.login">
+            <summary>
+            Login value.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.password">
+            <summary>
+            Encrypted password.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.customName">
+            <summary>
+            Custom name for account
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.selectedServer">
+            <summary>
+            Selected server.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.testConnectionIsEnabled">
+            <summary>
+            Is enabled button TestConnection.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.testConnectionMessage">
+            <summary>
+            Message about connection result.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.isTestConnectionConnected">
+            <summary>
+            Is connection to server completed successfully.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.Account">
+            <summary>
+            Complete and verified account object. Null if user abort adding account.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.Login">
+            <summary>
+            Property containing value used as login in server credentials.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.Password">
+            <summary>
+            Property containing value used as password as server credentials.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.CustomName">
+            <summary>
+            Custom name for account given by user.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.SelectedServer">
+            <summary>
+            Current selected server.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.TestConnectionIsEnabled">
+            <summary>
+            Is enabled TestConnection button.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.TestConnectionMessage">
+            <summary>
+            Message about connection result.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.IsCredentialsCorrect">
+            <summary>
+            Is connection to server completed successfully.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.SaveCmd">
+            <summary>
+            Save changes command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.AbortCmd">
+            <summary>
+            Abort command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.TestConnectionCmd">
+            <summary>
+            Test connection command.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Accounts.ViewModels.AddAccountVM.#ctor">
+            <summary>
+            Default constructor of adding account view model.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Accounts.ViewModels.AddAccountVM.Save(System.Windows.Window)">
+            <summary>
+            Save changes.
+            </summary>
+            <param name="window">Handle to close window with dialog result.</param>
+        </member>
+        <member name="M:RSync.Areas.Accounts.ViewModels.AddAccountVM.Abort(System.Windows.Window)">
+            <summary>
+            Abort action.
+            </summary>
+            <param name="window"></param>
+        </member>
+        <member name="M:RSync.Areas.Accounts.ViewModels.AddAccountVM.CloseWindow(System.Windows.Window,System.Boolean)">
+            <summary>
+            Close window with given dialog result.
+            </summary>
+            <param name="window">Handle to current window.</param>
+            <param name="dialogResult">Value for dialog result property in window.</param>
+        </member>
+        <member name="M:RSync.Areas.Accounts.ViewModels.AddAccountVM.TestConnection">
+            <summary>
+            Credentials verification by test connection to server.
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.Accounts.Views.AccountsV">
+            <summary>
+            Interaction logic for AccountsV.xaml
+            </summary>
+            <summary>
+            AccountsV
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Accounts.Views.AccountsV.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Accounts.Views.AccountsV.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.Accounts.Views.AddAccountV">
+            <summary>
+            Interaction logic for AddAccountV.xaml
+            </summary>
+            <summary>
+            AddAccountV
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Accounts.Views.AddAccountV.#ctor">
+            <summary>
+            Default AddAccount view constructor.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Accounts.Views.AddAccountV.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.MainWindow.ViewModels.MainWindowVM">
+            <summary>
+            View model from MainWindow
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.MainWindowVM.WindowTitle">
+            <summary>
+            Property to display application title
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.ViewModels.MainWindowVM.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.MainWindow.ViewModels.ToolBarVM">
+            <summary>
+            View model for ToolBar
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.MainWindow.ViewModels.ToolBarVM._startVisibility">
+            <summary>
+            Visibility of start button.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.StartVisibility">
+            <summary>
+            Visibility property of start button.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.MainWindow.ViewModels.ToolBarVM._stopVisibility">
+            <summary>
+            Visibility of stop button.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.StopVisibility">
+            <summary>
+            Visibility property of stop button.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.MainWindow.ViewModels.ToolBarVM._showAllHiddenElementsVisibility">
+            <summary>
+            Visibility of "show all hidden elements" button.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.ShowAllHiddenElementsVisibility">
+            <summary>
+            Visibility property of "show all hidden elements" button.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.MainWindow.ViewModels.ToolBarVM._hideAllSelectedElementsVisibility">
+            <summary>
+            Visibility of "hide all selected elements" button.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.HideAllSelectedElementsVisibility">
+            <summary>
+            Visibility property of "hide all selected elements" button.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.AccountsCmd">
+            <summary>
+            Accounts management command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.RefreshCmd">
+            <summary>
+            Command used to refresh list files on server or synchronize files skipping interval.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.StartCmd">
+            <summary>
+            Command used to start synchronization.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.StopCmd">
+            <summary>
+            Command used to stop synchronization.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.AddFileCmd">
+            <summary>
+            Command used to add a file to list of files to synchronized.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.AddFolderCmd">
+            <summary>
+            command used to add folder to list of files to synchronize.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.OptionsCmd">
+            <summary>
+            Command used to open options window.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.AboutCmd">
+            <summary>
+            Command used to open about window.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.ShowAllHiddenElementsCmd">
+            <summary>
+            Command used to show all elements selected by user to hidden.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.HideAllSelectedElementsCmd">
+            <summary>
+            Command used to hide all elements selected by user to hide.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.AccountsHandler">
+            <summary>
+            Handler invoked by AccountsCmd on completed default code.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.RefreshHandler">
+            <summary>
+            Handler invoked by RefreshCmd on completed default code.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.StartHandler">
+            <summary>
+            Handler invoked by StartCmd on completed default code.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.StopHandler">
+            <summary>
+            Handler invoked by StopCmd on completed default code.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.AddFileHandler">
+            <summary>
+            Handler invoked by AddFileCmd on completed default code.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.AddFolderHandler">
+            <summary>
+            Handler invoked by AddFolderCmd on completed default code.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.OptionsHandler">
+            <summary>
+            Handler invoked by OptionsCmd on completed default code.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.AboutHandler">
+            <summary>
+            Handler invoked by AboutCmd on completed default code.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.ShowAllHiddenElementsHandler">
+            <summary>
+            Handler invoked by ShowAllHidenElementsCmd on completed default code.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.HideAllSelectedElementsHandler">
+            <summary>
+            Handler invoked by HideAllSelectedElementsCmd on completed default code.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.Refresh">
+            <summary>
+            Refresh action method.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.HideAllSelectedElements">
+            <summary>
+            Hide all selected elements action method.
+            Change button visibility.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.ShowAllHiddenElements">
+            <summary>
+            Show all hidden elements action method.
+            Change buttons visibility.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.Start">
+            <summary>
+            Start action method. Hide start button and show stop button.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.Stop">
+            <summary>
+            Stop action method. Hide stop button and show start button.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.Accounts">
+            <summary>
+            Accounts action method. Show window to manage accounts.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.Options">
+            <summary>
+            Options action method. Show window to change application settings.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.About">
+            <summary>
+            About action method. Show window with informations about application.
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.MainWindow.Views.MainWindowV">
+            <summary>
+            Interaction logic for MainWindowV.xaml
+            </summary>
+            <summary>
+            MainWindowV
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.Views.MainWindowV.#ctor">
+            <summary>
+            Default MainWindow view constructor.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.Views.MainWindowV.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.MainWindow.Views.ToolBarV">
+            <summary>
+            Interaction logic for ToolBarV.xaml
+            </summary>
+            <summary>
+            ToolBarV
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.Views.ToolBarV.#ctor">
+            <summary>
+            Default ToolBar constructor.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.Views.ToolBarV.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.Settings.ViewModels.SettingsVM">
+            <summary>
+            View model for setting window.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Settings.ViewModels.SettingsVM._selectedAppLanguage">
+            <summary>
+            Selected application language.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Settings.ViewModels.SettingsVM.SelectedAppLanguage">
+            <summary>
+            Selected application language property.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Settings.ViewModels.SettingsVM.SaveCmd">
+            <summary>
+            Save changes command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Settings.ViewModels.SettingsVM.AbortCmd">
+            <summary>
+            Abort command.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Settings.ViewModels.SettingsVM.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Settings.ViewModels.SettingsVM.Save(System.Windows.Window)">
+            <summary>
+            Save changes.
+            </summary>
+            <param name="window">Handle to close window with dialog result.</param>
+        </member>
+        <member name="M:RSync.Areas.Settings.ViewModels.SettingsVM.IsAnySettingChanged(System.Boolean@,System.Boolean@)">
+            <summary>
+            Copy modified settings to singleton.
+            Return verify result is any properties was changed and is application restart required.
+            </summary>
+            <param name="anyPropertyChanged">True is any property was modified.</param>
+            <param name="restartRequired">True is property need restart application to correct working.</param>
+        </member>
+        <member name="M:RSync.Areas.Settings.ViewModels.SettingsVM.Abort(System.Windows.Window)">
+            <summary>
+            Abort action.
+            </summary>
+            <param name="window"></param>
+        </member>
+        <member name="M:RSync.Areas.Settings.ViewModels.SettingsVM.CloseWindow(System.Windows.Window,System.Boolean)">
+            <summary>
+            Close window with given dialog result.
+            </summary>
+            <param name="window">Handle to current window.</param>
+            <param name="dialogResult">Value for dialog result property in window.</param>
+        </member>
+        <member name="T:RSync.Areas.Settings.Views.SettingsV">
+            <summary>
+            Interaction logic for SettingsV.xaml
+            </summary>
+            <summary>
+            SettingsV
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Settings.Views.SettingsV.#ctor">
+            <summary>
+            Default Settings view constructor.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Settings.Views.SettingsV.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:RSync.Helpers.PasswordBoxAssistant">
+            <summary>
+            Assistant bind password from PasswordBox to property.
+            </summary>
+        </member>
+        <member name="F:RSync.Helpers.PasswordBoxAssistant.BoundPassword">
+            <summary>
+            Bound password property
+            </summary>
+        </member>
+        <member name="F:RSync.Helpers.PasswordBoxAssistant.BindPassword">
+            <summary>
+            Bind password property
+            </summary>
+        </member>
+        <member name="F:RSync.Helpers.PasswordBoxAssistant.UpdatingPassword">
+            <summary>
+            Updating password property.
+            </summary>
+        </member>
+        <member name="M:RSync.Helpers.PasswordBoxAssistant.OnBoundPasswordChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            On bound password changed.
+            </summary>
+            <param name="d">Dependency object.</param>
+            <param name="e">Event args.</param>
+        </member>
+        <member name="M:RSync.Helpers.PasswordBoxAssistant.OnBindPasswordChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            On Bind password changed.
+            </summary>
+            <param name="dp">Dependency object.</param>
+            <param name="e">Event args.</param>
+        </member>
+        <member name="M:RSync.Helpers.PasswordBoxAssistant.HandlePasswordChanged(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Handle password changed.
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="e">Event args.</param>
+        </member>
+        <member name="M:RSync.Helpers.PasswordBoxAssistant.SetBindPassword(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Set bind password property.
+            </summary>
+            <param name="dp">Dependency object.</param>
+            <param name="value">Is password should be bind to property</param>
+        </member>
+        <member name="M:RSync.Helpers.PasswordBoxAssistant.GetBindPassword(System.Windows.DependencyObject)">
+            <summary>
+            Return is password bind.
+            </summary>
+            <param name="dp">Dependency object.</param>
+            <returns>Is password bind.</returns>
+        </member>
+        <member name="M:RSync.Helpers.PasswordBoxAssistant.GetBoundPassword(System.Windows.DependencyObject)">
+            <summary>
+            Get password value.
+            </summary>
+            <param name="dp">Dependency object.</param>
+            <returns>Password value.</returns>
+        </member>
+        <member name="M:RSync.Helpers.PasswordBoxAssistant.SetBoundPassword(System.Windows.DependencyObject,System.String)">
+            <summary>
+            Set password value.
+            </summary>
+            <param name="dp">Dependency object.</param>
+            <param name="value">Password text.</param>
+        </member>
+        <member name="M:RSync.Helpers.PasswordBoxAssistant.GetUpdatingPassword(System.Windows.DependencyObject)">
+            <summary>
+            Get UpdateingPassword property.
+            </summary>
+            <param name="dp">Dependency object.</param>
+            <returns>UpdatingPassword property.</returns>
+        </member>
+        <member name="M:RSync.Helpers.PasswordBoxAssistant.SetUpdatingPassword(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Set updating password property.
+            </summary>
+            <param name="dp">Dependency object.</param>
+            <param name="value">Is updating password.</param>
+        </member>
+        <member name="T:RSync.ViewConverters.EnumToResourceConverter">
+            <summary>
+            Converter from enum to text localized in res file. Enum need Resource attribute.
+            </summary>
+        </member>
+        <member name="M:RSync.ViewConverters.EnumToResourceConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converter from enum to text localized in res file. Enum need Resource attribute
+            </summary>
+            <param name="value">Enum value.</param>
+            <param name="targetType">Ignored.</param>
+            <param name="parameter">Ignored.</param>
+            <param name="culture">Ignored.</param>
+            <returns></returns>
+        </member>
+        <member name="M:RSync.ViewConverters.EnumToResourceConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not implemented method.
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RSync.ViewConverters.StringToBoolConverter">
+            <summary>
+            Converter from string to boolean property.
+            </summary>
+        </member>
+        <member name="M:RSync.ViewConverters.StringToBoolConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converter from string to boolean.
+            </summary>
+            <param name="value">String value.</param>
+            <param name="targetType">Ignored.</param>
+            <param name="parameter">Ignored.</param>
+            <param name="culture">Ignored.</param>
+            <returns>False when string is empty.</returns>
+        </member>
+        <member name="M:RSync.ViewConverters.StringToBoolConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not implemented method.
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RSync.ViewConverters.StringToForegroundConverter">
+            <summary>
+            Converter from string to foreground color property.
+            </summary>
+        </member>
+        <member name="M:RSync.ViewConverters.StringToForegroundConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Convert string to foreground color.
+            </summary>
+            <param name="value">String to compare.</param>
+            <param name="targetType">Ignored</param>
+            <param name="parameter">Expected string.</param>
+            <param name="culture">Ignored</param>
+            <returns>Green if equal to parameter. Otherwise red.</returns>
+        </member>
+        <member name="M:RSync.ViewConverters.StringToForegroundConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not implemented method.
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RSync.ViewConverters.StringToVisibilityConverter">
+            <summary>
+            Converter from string to visibility property.
+            </summary>
+        </member>
+        <member name="M:RSync.ViewConverters.StringToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converter from string to visibility.
+            </summary>
+            <param name="value">String value.</param>
+            <param name="targetType">Ignored.</param>
+            <param name="parameter">Ignored.</param>
+            <param name="culture">Ignored.</param>
+            <returns>Collapsed when string is empty.</returns>
+        </member>
+        <member name="M:RSync.ViewConverters.StringToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Not implemented method.
+            </summary>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <param name="parameter"></param>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

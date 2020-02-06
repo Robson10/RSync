@@ -61,6 +61,24 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accounts.
+        /// </summary>
+        public static string AccountsWindowTitle {
+            get {
+                return ResourceManager.GetString("AccountsWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RSync.
+        /// </summary>
+        public static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Abort.
         /// </summary>
         public static string btnAbort {
@@ -70,11 +88,92 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        public static string btnAddAccount {
+            get {
+                return ResourceManager.GetString("btnAddAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string btnEditAccount {
+            get {
+                return ResourceManager.GetString("btnEditAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        public static string btnRemoveAccount {
+            get {
+                return ResourceManager.GetString("btnRemoveAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string btnSave {
             get {
                 return ResourceManager.GetString("btnSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspend.
+        /// </summary>
+        public static string btnSuspend {
+            get {
+                return ResourceManager.GetString("btnSuspend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test connection.
+        /// </summary>
+        public static string btnTestConnection {
+            get {
+                return ResourceManager.GetString("btnTestConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom name.
+        /// </summary>
+        public static string colCustomName {
+            get {
+                return ResourceManager.GetString("colCustomName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string colLogin {
+            get {
+                return ResourceManager.GetString("colLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server.
+        /// </summary>
+        public static string colServerName {
+            get {
+                return ResourceManager.GetString("colServerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspended.
+        /// </summary>
+        public static string colSuspended {
+            get {
+                return ResourceManager.GetString("colSuspended", resourceCulture);
             }
         }
         
@@ -97,11 +196,128 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Google.
+        /// </summary>
+        public static string enumServerGoogle {
+            get {
+                return ResourceManager.GetString("enumServerGoogle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Functionality is currently not available..
+        /// </summary>
+        public static string errNotImplementedException {
+            get {
+                return ResourceManager.GetString("errNotImplementedException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field cannot be empty..
+        /// </summary>
+        public static string ErrorFieldIsEmpty {
+            get {
+                return ResourceManager.GetString("ErrorFieldIsEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to App language.
         /// </summary>
         public static string lblAppLanguage {
             get {
                 return ResourceManager.GetString("lblAppLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Name :.
+        /// </summary>
+        public static string lblCustomName {
+            get {
+                return ResourceManager.GetString("lblCustomName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login :.
+        /// </summary>
+        public static string lblLogin {
+            get {
+                return ResourceManager.GetString("lblLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password :.
+        /// </summary>
+        public static string lblPassword {
+            get {
+                return ResourceManager.GetString("lblPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server :.
+        /// </summary>
+        public static string lblServer {
+            get {
+                return ResourceManager.GetString("lblServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An account was not added because an identical account has already exist..
+        /// </summary>
+        public static string msgAccountDuplication {
+            get {
+                return ResourceManager.GetString("msgAccountDuplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account with this login has already added..
+        /// </summary>
+        public static string msgAccountExist {
+            get {
+                return ResourceManager.GetString("msgAccountExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current custom name already in use..
+        /// </summary>
+        public static string msgCustomNameInUse {
+            get {
+                return ResourceManager.GetString("msgCustomNameInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom name cannot be empty..
+        /// </summary>
+        public static string msgEmptyCustomName {
+            get {
+                return ResourceManager.GetString("msgEmptyCustomName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login cannot be empty..
+        /// </summary>
+        public static string msgEmptyLogin {
+            get {
+                return ResourceManager.GetString("msgEmptyLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password cannot be empty..
+        /// </summary>
+        public static string msgEmptyPassword {
+            get {
+                return ResourceManager.GetString("msgEmptyPassword", resourceCulture);
             }
         }
         
@@ -117,7 +333,16 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About.
+        ///   Looks up a localized string similar to Test completed successfully..
+        /// </summary>
+        public static string msgTestConnectionConnected {
+            get {
+                return ResourceManager.GetString("msgTestConnectionConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About..
         /// </summary>
         public static string ttAbout {
             get {
@@ -126,7 +351,7 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Accounts.
+        ///   Looks up a localized string similar to Accounts..
         /// </summary>
         public static string ttAccounts {
             get {
@@ -135,7 +360,7 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add File.
+        ///   Looks up a localized string similar to Add File..
         /// </summary>
         public static string ttAddFile {
             get {
@@ -144,7 +369,7 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Folder.
+        ///   Looks up a localized string similar to Add Folder..
         /// </summary>
         public static string ttAddFolder {
             get {
@@ -153,7 +378,7 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hide all selected files and folders.
+        ///   Looks up a localized string similar to Hide all selected files and folders..
         /// </summary>
         public static string ttHideAllSelectedElements {
             get {
@@ -162,7 +387,7 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Options.
+        ///   Looks up a localized string similar to Options..
         /// </summary>
         public static string ttOptions {
             get {
@@ -171,7 +396,7 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Refresh.
+        ///   Looks up a localized string similar to Refresh..
         /// </summary>
         public static string ttRefresh {
             get {
@@ -207,11 +432,38 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Synchronization status.
+        ///   Looks up a localized string similar to Synchronization status..
         /// </summary>
         public static string ttSynchronizationStatus {
             get {
                 return ResourceManager.GetString("ttSynchronizationStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pinned accounts.
+        /// </summary>
+        public static string WindowTitleAccounts {
+            get {
+                return ResourceManager.GetString("WindowTitleAccounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add user account.
+        /// </summary>
+        public static string WindowTitleAddAccount {
+            get {
+                return ResourceManager.GetString("WindowTitleAddAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string WindowTitleSettings {
+            get {
+                return ResourceManager.GetString("WindowTitleSettings", resourceCulture);
             }
         }
     }

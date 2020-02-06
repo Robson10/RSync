@@ -5,7 +5,8 @@ namespace RSync.Core.Extends
     /// <summary>
     /// Attribute class containing name of resource.
     /// </summary>
-    public class Resource : Attribute
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = true)]
+    public class ResourceAttribute : Attribute
     {
         /// <summary>
         /// Resource name
@@ -21,7 +22,7 @@ namespace RSync.Core.Extends
         /// Default constructor
         /// </summary>
         /// <param name="resourceName"></param>
-        public Resource(string resourceName)
+        public ResourceAttribute(string resourceName)
         {
             this.resourceName = resourceName;
         }

@@ -2,6 +2,7 @@
 using RSync.AppResources.Localization;
 using System;
 using System.ComponentModel;
+using System.Globalization;
 using System.Reflection;
 
 namespace RSync.Core.Extends
@@ -16,6 +17,11 @@ namespace RSync.Core.Extends
         /// <returns>A description of the enum, or the enum name if no description exists.</returns>
         public static string GetDescription(this Enum value)
         {
+            if (value is null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             FieldInfo fi = value.GetType().GetField(value.ToString());
             DescriptionAttribute[] attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
 
@@ -34,19 +40,24 @@ namespace RSync.Core.Extends
         /// <returns>A resource value of the enum, or the enum expected resource name if resource not exists or resource attribute not found.</returns>
         public static string GetResourceValue(this Enum value)
         {
+            if (value is null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             string valueToDisplay = string.Empty;
             FieldInfo fi = value.GetType().GetField(value.ToString());
-            Resource[] attributes = (Resource[])fi.GetCustomAttributes(typeof(Resource), false);
+            ResourceAttribute[] attributes = (ResourceAttribute[])fi.GetCustomAttributes(typeof(ResourceAttribute), false);
 
             if (attributes != null && attributes.Length > 0)
             {
                 string nameOfResource = attributes[0].ResourceName;
-                valueToDisplay = res.ResourceManager.GetString(nameOfResource);
+                valueToDisplay = res.ResourceManager.GetString(nameOfResource, CultureInfo.CurrentCulture);
             }
 
             if (string.IsNullOrEmpty(valueToDisplay))
             {
-                valueToDisplay = string.Format(config.EnumResourceNameFormat, value.GetType().Name, value);
+                valueToDisplay = string.Format(CultureInfo.CurrentCulture, config.EnumResourceNameFormat, value.GetType().Name, value);
             }
 
             return valueToDisplay;
@@ -58,6 +69,11 @@ namespace RSync.Core.Extends
         /// <returns>A resource value of the enum, or the enum expected resource name if resource not exists or resource attribute not found.</returns>
         public static T GetEnumByDescription<T>(Type enumType, string description) where T : Enum
         {
+            if (enumType is null)
+            {
+                throw new ArgumentNullException(nameof(enumType));
+            }
+
             T result = default;
 
             foreach (FieldInfo field in enumType.GetFields())

@@ -1,0 +1,28 @@
+﻿[*.cs]
+
+# CA1062: Validate arguments of public methods
+dotnet_diagnostic.CA1062.severity = error
+
+# CA1304: Specify CultureInfo
+dotnet_diagnostic.CA1304.severity = error
+
+# CA1305: Specify IFormatProvider
+dotnet_diagnostic.CA1305.severity = error
+
+# CA1724: The type name Server conflicts in whole or in part with the namespace name 'Microsoft.SqlServer.Server' defined in the .NET Framework. Rename the type to eliminate the conflict.
+dotnet_diagnostic.CA1724.severity = error
+
+# CA1018: Mark attributes with AttributeUsageAttribute
+dotnet_diagnostic.CA1018.severity = error
+
+# CA1710: Identifiers should have correct suffix
+dotnet_diagnostic.CA1710.severity = error
+
+# CA1822: Member SaveChanges does not access instance data and can be marked as static (Shared in VisualBasic)
+dotnet_diagnostic.CA1822.severity = error
+
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = error
+
+# CS1573: Parameter has no matching param tag in the XML comment (but other parameters do)
+dotnet_diagnostic.CS1573.severity = error

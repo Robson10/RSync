@@ -1,31 +1,36 @@
 ﻿using RSync.Core.Extends;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Text;
+using System.Windows;
 using System.Windows.Data;
 
-namespace RSync.Core.ViewConverters
+namespace RSync.ViewConverters
 {
     /// <summary>
-    /// Converter from enum to text localized in res file. Enum need Resource attribute.
+    /// Converter from string to visibility property.
     /// </summary>
-    public class EnumToResourceConverter : IValueConverter
+    public class StringToVisibilityConverter : IValueConverter
     {
         /// <summary>
-        /// Converter from enum to text localized in res file. Enum need Resource attribute
+        /// Converter from string to visibility.
         /// </summary>
-        /// <param name="value">Enum value.</param>
+        /// <param name="value">String value.</param>
         /// <param name="targetType">Ignored.</param>
         /// <param name="parameter">Ignored.</param>
         /// <param name="culture">Ignored.</param>
-        /// <returns></returns>
+        /// <returns>Collapsed when string is empty.</returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value != null)
+            Visibility visibility = Visibility.Visible;
+
+            if (value == null || string.IsNullOrEmpty(value.ToString()))
             {
-                string valueToDipslay = ((Enum)value).GetResourceValue();
-                return valueToDipslay;
+                visibility = Visibility.Collapsed;
             }
-            return string.Empty;
+
+            return visibility;
         }
 
         /// <summary>

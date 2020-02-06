@@ -1,0 +1,67 @@
+﻿<Window x:Class="RSync.Areas.Accounts.Views.AccountsV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RSync.Areas.Accounts.Views"
+        xmlns:viewmodel="clr-namespace:RSync.Areas.Accounts.ViewModels"
+        xmlns:localization="clr-namespace:RSync.AppResources.Localization;assembly=RSync.AppResources"
+        xmlns:classes="clr-namespace:RSync.Core.Classes;assembly=RSync.Core"
+        xmlns:viewconverters="clr-namespace:RSync.ViewConverters"
+        mc:Ignorable="d"
+        Title="{x:Static localization:res.WindowTitleAccounts}" Height="300" Width="450"
+        >
+    <Window.DataContext>
+        <viewmodel:AccountsVM />
+    </Window.DataContext>
+    <Window.Resources>
+        <viewconverters:EnumToResourceConverter x:Key="EnumToResourceConverter" />
+    </Window.Resources>
+    <DockPanel>
+        <DataGrid ItemsSource="{Binding AccountsList,UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Top" 
+                  AutoGenerateColumns="False" RowHeight="20">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="{x:Static localization:res.colServerName}"
+                                        Width="100" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Server, Converter={StaticResource EnumToResourceConverter}}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="{x:Static localization:res.colCustomName}"
+                                        Width="100" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding CustomName}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="{x:Static localization:res.colLogin}"
+                                        Width="100" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Login}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="{x:Static localization:res.colSuspended}"
+                                        Width="100" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsSuspended}" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button Command="{Binding AddAccountCmd}" 
+                    Content="{x:Static localization:res.btnAddAccount}" />
+            <Button Command="{Binding DeleteAccountCmd}" 
+                    Content="{x:Static localization:res.btnRemoveAccount}" />
+            <Button Command="{Binding EditAccountCmd}" 
+                    Content="{x:Static localization:res.btnEditAccount}" />
+        </StackPanel>
+    </DockPanel>
+</Window>
