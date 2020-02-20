@@ -22,8 +22,8 @@
         </Style>
     </UserControl.Resources>
     <ToolBar DockPanel.Dock="Top" Background="DimGray">
-        <Button Command="{Binding AccountsCmd}"
-                ToolTip="{x:Static localization:res.ttAccounts}" Style="{StaticResource ToolBarButtonStyle}">
+        <Button Command="{Binding ServersCmd}"
+                ToolTip="{x:Static localization:res.ttServers}" Style="{StaticResource ToolBarButtonStyle}">
             <Image Source="pack://siteoforigin:,,,/Icons/Account.png" Style="{StaticResource ImageStyle}" />
         </Button>
         <Button Command="{Binding RefreshCmd}"

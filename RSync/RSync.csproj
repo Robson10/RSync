@@ -22,7 +22,9 @@
   <ItemGroup>
     <ProjectReference Include="..\RSync.AppResources\RSync.AppResources.csproj" />
     <ProjectReference Include="..\RSync.Core\RSync.Core.csproj" />
+    <ProjectReference Include="..\RSync.Logic\RSync.Logic.csproj" />
     <ProjectReference Include="..\RSync.Theme\RSync.Theme.csproj" />
+    <ProjectReference Include="..\RSync.Domain\RSync.Domain.csproj" />
   </ItemGroup>
 
 </Project>

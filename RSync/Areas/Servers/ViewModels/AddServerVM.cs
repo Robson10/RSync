@@ -1,19 +1,20 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using RSync.AppResources.Localization;
-using RSync.Core.Classes;
 using RSync.Core.Enumerations;
-using RSync.Core.Security;
+using RSync.Core.Helpers;
+using RSync.Domain.Model;
+using RSync.Helpers;
+using RSync.Logic;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 
-namespace RSync.Areas.Accounts.ViewModels
+namespace RSync.Areas.Servers.ViewModels
 {
     /// <summary>
-    /// View model of Add Account view.
+    /// Add server view model.
     /// </summary>
-    public class AddAccountVM : BindableBase, IDataErrorInfo
+    internal class AddServerVM : BindableBase, IDataErrorInfo
     {
         #region DataErrorInfo
 
@@ -76,27 +77,11 @@ namespace RSync.Areas.Accounts.ViewModels
                 string result = string.Empty;
                 switch (propertyName)
                 {
-                    case nameof(SelectedServer):
-                        {
-                            if (Singleton.Accounts.Any(x => x.Server == SelectedServer && x.Login.Equals(Login)))
-                            {
-                                ErrorLogin = res.msgAccountExist;
-                            }
-                            else if(ErrorLogin.Equals(res.msgAccountExist))
-                            {
-                                ErrorLogin = string.Empty;
-                            }
-                        }
-                        break;
                     case nameof(Login):
                         {
                             if (string.IsNullOrEmpty(Login))
                             {
                                 result = res.msgEmptyLogin;
-                            }
-                            else if (Singleton.Accounts.Any(x => x.Server==SelectedServer && x.Login.Equals(Login)))
-                            {
-                                result = res.msgAccountExist;
                             }
 
                             ErrorLogin = result;
@@ -117,10 +102,6 @@ namespace RSync.Areas.Accounts.ViewModels
                             if (string.IsNullOrEmpty(CustomName))
                             {
                                 result = res.msgEmptyCustomName;
-                            }
-                            else if (Singleton.Accounts.Any(x => x.CustomName.Equals(CustomName))) 
-                            {
-                                result = res.msgCustomNameInUse;
                             }
 
                             ErrorCustomName = result;
@@ -147,7 +128,7 @@ namespace RSync.Areas.Accounts.ViewModels
         private string password;
 
         /// <summary>
-        /// Custom name for account
+        /// Custom name for server.
         /// </summary>
         private string customName;
 
@@ -172,9 +153,9 @@ namespace RSync.Areas.Accounts.ViewModels
         private bool isTestConnectionConnected;
 
         /// <summary>
-        /// Complete and verified account object. Null if user abort adding account.
+        /// Complete and verified server object. Null if user abort adding server.
         /// </summary>
-        public Account Account = null;
+        public Server Server = null;
 
         /// <summary>
         /// Property containing value used as login in server credentials.
@@ -200,19 +181,19 @@ namespace RSync.Areas.Accounts.ViewModels
         {
             get
             {
-                string decryptedPassword = RsaCryptographyHelper.Decrypt(password);
+                string decryptedPassword = RsaHelper.Decrypt(password);
                 return decryptedPassword;
             }
             set
             {
-                string encryptedPassword = RsaCryptographyHelper.Encrypt(value);
+                string encryptedPassword = RsaHelper.Encrypt(value,Singleton.RsaPublicKey);
                 SetProperty(ref password, encryptedPassword);
                 IsCredentialsCorrect = false;
             }
         }
 
         /// <summary>
-        /// Custom name for account given by user.
+        /// Custom name for server given by user.
         /// </summary>
         public string CustomName
         {
@@ -221,7 +202,7 @@ namespace RSync.Areas.Accounts.ViewModels
         }
 
         /// <summary>
-        /// Current selected server.
+        /// Current selected server type.
         /// </summary>
         public ServerType SelectedServer
         {
@@ -271,11 +252,11 @@ namespace RSync.Areas.Accounts.ViewModels
         /// Test connection command.
         /// </summary>
         public DelegateCommand TestConnectionCmd { get; private set; }
-        
+
         /// <summary>
-        /// Default constructor of adding account view model.
+        /// Default constructor.
         /// </summary>
-        public AddAccountVM()
+        public AddServerVM()
         {
             SaveCmd = new DelegateCommand<Window>(Save);
             AbortCmd = new DelegateCommand<Window>(Abort);
@@ -288,10 +269,22 @@ namespace RSync.Areas.Accounts.ViewModels
         /// <param name="window">Handle to close window with dialog result.</param>
         private void Save(Window window)
         {
-            Account = null;
+            Server = null;
+            if (ServerLogic.IsCustomNameExist(CustomName))
+            {
+                ErrorCustomName = res.msgCustomNameInUse;
+                return;
+            }
+
+            if (ServerLogic.IsServerExist(Login, SelectedServer))
+            {
+                ErrorLogin = res.msgServerExist;
+                return;
+            }
+
             if (!string.IsNullOrEmpty(Login) && !string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(CustomName))
             {
-                Account = new Account(Login, Password, CustomName, SelectedServer, false);
+                Server = new Server(Login, Password, CustomName, SelectedServer, false);
             }
 
             CloseWindow(window, true);
@@ -331,12 +324,12 @@ namespace RSync.Areas.Accounts.ViewModels
 
             if (!isCredentialsCorrect)
             {
-                msgConnectionTest = res.errNotImplementedException;
+                msgConnectionTest = res.exNotImplementedException;
                 MessageBox.Show(msgConnectionTest);
             }
             else
             {
-                MessageBox.Show(res.errNotImplementedException);
+                MessageBox.Show(res.exNotImplementedException);
                 msgConnectionTest = res.msgTestConnectionConnected;
             }
 

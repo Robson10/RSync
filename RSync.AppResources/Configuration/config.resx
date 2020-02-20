@@ -120,6 +120,9 @@
   <data name="ConfigFolderName" xml:space="preserve">
     <value>Configuration</value>
   </data>
+  <data name="DataFolderName" xml:space="preserve">
+    <value>Data</value>
+  </data>
   <data name="EnumResourceNameFormat" xml:space="preserve">
     <value>Enum{0}{1}</value>
   </data>
@@ -129,17 +132,20 @@
   <data name="GoogleToken" xml:space="preserve">
     <value>GoogleToken.json</value>
   </data>
+  <data name="LogFileName" xml:space="preserve">
+    <value>Log.csv</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value />
   </data>
   <data name="RsaPrivateKeyFileName" xml:space="preserve">
     <value>RsaPrivateKey.json</value>
   </data>
-  <data name="RsaPublicKeyFileName" xml:space="preserve">
-    <value>RsaPublicKey.json</value>
-  </data>
   <data name="SettingsFileName" xml:space="preserve">
     <value>Settings.json</value>
+  </data>
+  <data name="SqLiteDataBaseFilePath" xml:space="preserve">
+    <value>DataBaseFile\RSync.db</value>
   </data>
   <data name="UserLogin" xml:space="preserve">
     <value>RobertM</value>

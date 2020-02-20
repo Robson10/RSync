@@ -1,6 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
-using RSync.Areas.Accounts.Views;
+using RSync.Areas.Servers.Views;
 using RSync.Areas.Settings.Views;
 using System.Windows;
 
@@ -64,7 +64,7 @@ namespace RSync.Areas.MainWindow.ViewModels
         /// <summary>
         /// Accounts management command.
         /// </summary>
-        public DelegateCommand AccountsCmd { get; private set; }
+        public DelegateCommand ServersCmd { get; private set; }
 
         /// <summary>
         /// Command used to refresh list files on server or synchronize files skipping interval.
@@ -175,7 +175,7 @@ namespace RSync.Areas.MainWindow.ViewModels
             RefreshCmd = new DelegateCommand(Refresh);
             StartCmd = new DelegateCommand(Start);
             StopCmd = new DelegateCommand(Stop);
-            AccountsCmd = new DelegateCommand(Accounts);
+            ServersCmd = new DelegateCommand(Servers);
             OptionsCmd = new DelegateCommand(Options);
             AboutCmd = new DelegateCommand(About);
             ShowAllHiddenElementsCmd = new DelegateCommand(ShowAllHiddenElements);
@@ -239,10 +239,10 @@ namespace RSync.Areas.MainWindow.ViewModels
         /// <summary>
         /// Accounts action method. Show window to manage accounts.
         /// </summary>
-        private void Accounts()
+        private void Servers()
         {
-            AccountsV accountsV = new AccountsV();
-            if(accountsV.ShowDialog() ==true)
+            ServersV serversV = new ServersV();
+            if(serversV.ShowDialog() ==true)
             {
 
             }

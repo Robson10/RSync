@@ -1,5 +1,6 @@
 ﻿using RSync.AppResources.Configuration;
 using RSync.AppResources.Localization;
+using RSync.Core.Helpers;
 using System;
 using System.ComponentModel;
 using System.Globalization;
@@ -19,7 +20,10 @@ namespace RSync.Core.Extends
         {
             if (value is null)
             {
-                throw new ArgumentNullException(nameof(value));
+                ArgumentNullException ex = new ArgumentNullException(nameof(value));
+                LogHelper.LogError(ex, CultureInfo.CurrentCulture);
+                throw ex;
+
             }
 
             FieldInfo fi = value.GetType().GetField(value.ToString());
@@ -42,7 +46,9 @@ namespace RSync.Core.Extends
         {
             if (value is null)
             {
-                throw new ArgumentNullException(nameof(value));
+                ArgumentNullException ex = new ArgumentNullException(nameof(value));
+                LogHelper.LogError(ex, CultureInfo.CurrentCulture);
+                throw ex;
             }
 
             string valueToDisplay = string.Empty;
@@ -71,7 +77,9 @@ namespace RSync.Core.Extends
         {
             if (enumType is null)
             {
-                throw new ArgumentNullException(nameof(enumType));
+                ArgumentNullException ex = new ArgumentNullException(nameof(enumType));
+                LogHelper.LogError(ex, CultureInfo.CurrentCulture);
+                throw ex;
             }
 
             T result = default;

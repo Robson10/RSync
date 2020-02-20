@@ -1,16 +1,16 @@
 ﻿using System.Windows;
 
-namespace RSync.Areas.Accounts.Views
+namespace RSync.Areas.Servers.Views
 {
     /// <summary>
-    /// Interaction logic for AccountsV.xaml
+    /// Interaction logic for ServersV.xaml
     /// </summary>
-    public partial class AccountsV : Window
+    public partial class ServersV : Window
     {
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public AccountsV()
+        public ServersV()
         {
             InitializeComponent();
         }

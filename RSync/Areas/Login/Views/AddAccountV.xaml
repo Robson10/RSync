@@ -1,0 +1,74 @@
+﻿<Window x:Class="RSync.Areas.Login.Views.AddAccountV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:RSync.Areas.Login.ViewModels"
+        mc:Ignorable="d"
+        xmlns:localization="clr-namespace:RSync.AppResources.Localization;assembly=RSync.AppResources"
+        xmlns:viewconverters="clr-namespace:RSync.ViewConverters"
+        xmlns:pba="clr-namespace:RSync.Helpers"
+        Title="{x:Static localization:res.WindowTitleAddAccount}"
+        Height="200" Width="250" MinHeight="200" MinWidth="250">
+    <Window.DataContext>
+        <viewmodels:AddAccountVM/>
+    </Window.DataContext>
+    <Window.Resources>
+        <viewconverters:StringToForegroundConverter x:Key="StringToForeground"/>
+        <viewconverters:StringToVisibilityConverter x:Key="StringToVisibility"/>
+        <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="TextWrapping" Value="NoWrap" />
+            <Setter Property="AcceptsReturn" Value="False"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+        <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="ErrorTextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="TextWrapping" Value="WrapWithOverflow" />
+            <Setter Property="IsEnabled" Value="False" />
+            <Setter Property="Foreground" Value="Red" />
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource Self},Path=Text,Converter={StaticResource StringToVisibility}}" />
+        </Style>
+        <Style TargetType="StackPanel" x:Key="ButtonsPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel Margin="10">
+        <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Center">
+            <!--Login-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="{x:Static localization:res.lblLogin}" />
+                <TextBox Text="{Binding Login,ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <TextBlock Style="{StaticResource ErrorTextBlock}"
+                           Text="{Binding ErrorLogin}" 
+                           />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <!--Password-->
+                <Label Content="{x:Static localization:res.lblPassword}" />
+                <PasswordBox pba:PasswordBoxAssistant.BindPassword="true"
+                         pba:PasswordBoxAssistant.BoundPassword="{Binding Password, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True, Mode=TwoWay}"
+                         />
+            </StackPanel>
+            <TextBlock Style="{StaticResource ErrorTextBlock}"
+                       Text="{Binding ErrorPassword}"
+                       />
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource ButtonsPanel}">
+            <Button IsDefault="True"
+                    Command="{Binding AddCmd}"
+                    IsEnabled="{Binding IsCredencialsCorrect}"
+                    Content="{x:Static localization:res.btnAdd}"/>
+            <Button IsCancel="True"
+                    Command="{Binding AbortCmd}"
+                    Content="{x:Static localization:res.btnAbort}"/>
+        </StackPanel>
+    </DockPanel>
+</Window>

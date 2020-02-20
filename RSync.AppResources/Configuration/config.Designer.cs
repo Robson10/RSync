@@ -70,6 +70,15 @@ namespace RSync.AppResources.Configuration {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string DataFolderName {
+            get {
+                return ResourceManager.GetString("DataFolderName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enum{0}{1}.
         /// </summary>
         public static string EnumResourceNameFormat {
@@ -97,6 +106,15 @@ namespace RSync.AppResources.Configuration {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log.csv.
+        /// </summary>
+        public static string LogFileName {
+            get {
+                return ResourceManager.GetString("LogFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         public static string Password {
@@ -115,20 +133,20 @@ namespace RSync.AppResources.Configuration {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to RsaPublicKey.json.
-        /// </summary>
-        public static string RsaPublicKeyFileName {
-            get {
-                return ResourceManager.GetString("RsaPublicKeyFileName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Settings.json.
         /// </summary>
         public static string SettingsFileName {
             get {
                 return ResourceManager.GetString("SettingsFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DataBaseFile\RSync.db.
+        /// </summary>
+        public static string SqLiteDataBaseFilePath {
+            get {
+                return ResourceManager.GetString("SqLiteDataBaseFilePath", resourceCulture);
             }
         }
         

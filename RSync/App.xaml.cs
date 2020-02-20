@@ -1,7 +1,7 @@
 ﻿using RSync.AppResources.Localization;
-using RSync.Core.Classes;
-using RSync.Core.Enumerations;
 using RSync.Core.Extends;
+using RSync.Domain.Model;
+using RSync.Logic;
 using System.Globalization;
 using System.Threading;
 using System.Windows;
@@ -21,20 +21,30 @@ namespace RSync
         {
             base.OnStartup(e);
 
-            SetCurrentAppCulture(Singleton.Settings.AppLanguage);
+#if DEBUG
+            _DebugInit.Init();
+#endif
         }
 
         /// <summary>
         /// Application and Resource(res.resx) culture is set based on language parameter.
         /// </summary>
-        /// <param name="language"></param>
-        public static void SetCurrentAppCulture(AppLanguage language)
+        /// <param name="UserId"></param>
+        public static void SetCurrentAppCulture(int? UserId)
         {
-            string localization = language.GetDescription();
 
-            res.Culture = new CultureInfo(localization);
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(localization);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(localization);
+            if (UserId.HasValue)
+            {
+                Settings settings = SettingsLogic.GetSettings(UserId);
+                if (settings != null)
+                {
+                    string localization = settings.AppLanguage.GetDescription();
+
+                    res.Culture = new CultureInfo(localization);
+                    Thread.CurrentThread.CurrentCulture = new CultureInfo(localization);
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(localization);
+                }
+            }
         }
     }
 }

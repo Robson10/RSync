@@ -4,3 +4,6 @@
 // a specific target and scoped to a namespace, type, member, etc.
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0019:Use pattern matching", Justification = "<Pending>", Scope = "member", Target = "~M:RSync.Core.Extends.EnumUtil.GetEnumByDescription``1(System.Type,System.String)~``0")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>", Scope = "member", Target = "~M:RSync.Core.Helpers.RsaHelper.ReadRsaPrivateKey~System.Security.Cryptography.RSAParameters")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>", Scope = "member", Target = "~M:RSync.Core.Helpers.RsaHelper.IsRsaPrivateKeyExist~System.Boolean")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>", Scope = "member", Target = "~M:RSync.Core.Helpers.RsaHelper.IsKeysCorrect(System.Security.Cryptography.RSAParameters)~System.Boolean")]

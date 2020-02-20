@@ -1,21 +1,20 @@
-﻿<Window x:Class="RSync.Areas.Accounts.Views.AddAccountV"
-        x:Name="AddAccountWindow"
+﻿<Window x:Class="RSync.Areas.Servers.Views.AddServerV"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RSync.Areas.Accounts.Views"
-        xmlns:localization="clr-namespace:RSync.AppResources.Localization;assembly=RSync.AppResources"
+        xmlns:local="clr-namespace:RSync.Areas.Servers.Views"
+        mc:Ignorable="d"
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:Enumerations="clr-namespace:RSync.Core.Enumerations;assembly=RSync.Core"
-        xmlns:viewmodels="clr-namespace:RSync.Areas.Accounts.ViewModels"
+        xmlns:viewmodels="clr-namespace:RSync.Areas.Servers.ViewModels"
         xmlns:pba="clr-namespace:RSync.Helpers"
         xmlns:viewconverters="clr-namespace:RSync.ViewConverters"
-        mc:Ignorable="d"
-        Title="{x:Static localization:res.WindowTitleAddAccount}" 
+        xmlns:localization="clr-namespace:RSync.AppResources.Localization;assembly=RSync.AppResources"
+        Title="{x:Static localization:res.WindowTitleAddServer}" 
         Height="350" Width="350" MinHeight="300" MinWidth="350">
     <Window.DataContext>
-        <viewmodels:AddAccountVM/>
+        <viewmodels:AddServerVM/>
     </Window.DataContext>
     <Window.Resources>
         <ObjectDataProvider x:Key="Server" MethodName="GetValues"
@@ -102,7 +101,7 @@
                />
             <PasswordBox Grid.Row="3" Grid.Column="1"
                      pba:PasswordBoxAssistant.BindPassword="true"
-                     pba:PasswordBoxAssistant.BoundPassword="{Binding Password,ValidatesOnDataErrors=True,Mode=TwoWay}"
+                     pba:PasswordBoxAssistant.BoundPassword="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                      />
             <TextBlock Grid.Row="4" Grid.Column="1"
                    Style="{StaticResource ErrorTextBlock}"
@@ -136,12 +135,10 @@
         <StackPanel Style="{StaticResource ButtonsPanel}">
             <Button IsDefault="True"
                     Command="{Binding SaveCmd}"
-                    CommandParameter="{Binding ElementName=AddAccountWindow}"
                     IsEnabled="{Binding IsCredentialsCorrect}"
                     Content="{x:Static localization:res.btnSave}"/>
             <Button IsCancel="True"
                     Command="{Binding AbortCmd}"
-                    CommandParameter="{Binding ElementName=AddAccountWindow}"
                     Content="{x:Static localization:res.btnAbort}"/>
         </StackPanel>
     </DockPanel>

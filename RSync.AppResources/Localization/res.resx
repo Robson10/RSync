@@ -117,32 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AccountsWindowTitle" xml:space="preserve">
-    <value>Accounts</value>
-  </data>
   <data name="AppName" xml:space="preserve">
     <value>RSync</value>
   </data>
   <data name="btnAbort" xml:space="preserve">
     <value>Abort</value>
   </data>
-  <data name="btnAddAccount" xml:space="preserve">
+  <data name="btnAdd" xml:space="preserve">
     <value>Add</value>
   </data>
-  <data name="btnEditAccount" xml:space="preserve">
+  <data name="btnEdit" xml:space="preserve">
     <value>Edit</value>
   </data>
-  <data name="btnRemoveAccount" xml:space="preserve">
+  <data name="btnRemove" xml:space="preserve">
     <value>Remove</value>
   </data>
   <data name="btnSave" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="btnSignIn" xml:space="preserve">
+    <value>Sign in</value>
   </data>
   <data name="btnSuspend" xml:space="preserve">
     <value>Suspend</value>
   </data>
   <data name="btnTestConnection" xml:space="preserve">
     <value>Test connection</value>
+  </data>
+  <data name="capError" xml:space="preserve">
+    <value>Error</value>
   </data>
   <data name="colCustomName" xml:space="preserve">
     <value>Custom name</value>
@@ -165,11 +168,29 @@
   <data name="enumServerGoogle" xml:space="preserve">
     <value>Google</value>
   </data>
-  <data name="errNotImplementedException" xml:space="preserve">
-    <value>Functionality is currently not available.</value>
-  </data>
   <data name="ErrorFieldIsEmpty" xml:space="preserve">
     <value>Field cannot be empty.</value>
+  </data>
+  <data name="ErrorLogFormat" xml:space="preserve">
+    <value>{0};{1};{2};{3};{4};</value>
+  </data>
+  <data name="ErrorLogHeaders" xml:space="preserve">
+    <value>Date;Message;Exception;Stack trace;Source;</value>
+  </data>
+  <data name="exJSonArgumentNullException" xml:space="preserve">
+    <value>An attempt was made to serialize the null object.</value>
+  </data>
+  <data name="exLogNullException" xml:space="preserve">
+    <value>Connot log null value of exception.</value>
+  </data>
+  <data name="exNotImplementedException" xml:space="preserve">
+    <value>Functionality is currently not available.</value>
+  </data>
+  <data name="exPropertyNullException" xml:space="preserve">
+    <value>Property {0} is null or empty.</value>
+  </data>
+  <data name="exRsaPrivateKeyIsNull" xml:space="preserve">
+    <value>RSA private key used to decrypt is empty.</value>
   </data>
   <data name="lblAppLanguage" xml:space="preserve">
     <value>App language</value>
@@ -186,11 +207,19 @@
   <data name="lblServer" xml:space="preserve">
     <value>Server :</value>
   </data>
-  <data name="msgAccountDuplication" xml:space="preserve">
-    <value>An account was not added because an identical account has already exist.</value>
+  <data name="msgCannotDeserializePrivateRsaKey" xml:space="preserve">
+    <value>The private key saved in the {0} file has errors. The reason may be manual modification of the file.
+
+Try to fix it or generate a new key. Generating a new key will prevent the encrypted data from being restored.
+
+Do you want to generate a new key?</value>
   </data>
-  <data name="msgAccountExist" xml:space="preserve">
-    <value>Account with this login has already added.</value>
+  <data name="msgCannotDeserializePublicRsaKey" xml:space="preserve">
+    <value>The private key has errors.
+
+Contact with administrator or generate a new key. Generating a new key will prevent the encrypted data from being restored.
+
+Do you want to generate a new key?</value>
   </data>
   <data name="msgCustomNameInUse" xml:space="preserve">
     <value>Current custom name already in use.</value>
@@ -204,6 +233,33 @@
   <data name="msgEmptyPassword" xml:space="preserve">
     <value>Password cannot be empty.</value>
   </data>
+  <data name="msgLoginInUse" xml:space="preserve">
+    <value>Login already in use.</value>
+  </data>
+  <data name="msgPrivateRsaNotFound" xml:space="preserve">
+    <value>The private key to encrypt data was not found ({0}). 
+
+If you log in to a new location, you should move the file from the previous device.
+
+If you do not have a copy of the file, you will need to generate a new set of keys which will result in the loss of access to data on this and other devices.
+
+Continue?</value>
+  </data>
+  <data name="msgPublicRsaNotFound" xml:space="preserve">
+    <value>The public key for data encryption was not found. It will be necessary to generate a new set of keys which will result in the loss of access to data.
+
+Continue?</value>
+  </data>
+  <data name="msgRsaKeysNotMatch" xml:space="preserve">
+    <value>The encryption and decryption keys do not match.
+
+Try to fix them or generate a new key set. Generating new keys will prevent encrypted data from being restored.
+
+Do you want to generate a new key set?</value>
+  </data>
+  <data name="msgServerExist" xml:space="preserve">
+    <value>Server with this login has already added.</value>
+  </data>
   <data name="msgSettingsRequireRestartApplication" xml:space="preserve">
     <value>New settings require restart the application.
 
@@ -212,11 +268,11 @@ Do you want to restart the application?</value>
   <data name="msgTestConnectionConnected" xml:space="preserve">
     <value>Test completed successfully.</value>
   </data>
+  <data name="testText" xml:space="preserve">
+    <value>Example text.</value>
+  </data>
   <data name="ttAbout" xml:space="preserve">
     <value>About.</value>
-  </data>
-  <data name="ttAccounts" xml:space="preserve">
-    <value>Accounts.</value>
   </data>
   <data name="ttAddFile" xml:space="preserve">
     <value>Add File.</value>
@@ -233,6 +289,9 @@ Do you want to restart the application?</value>
   <data name="ttRefresh" xml:space="preserve">
     <value>Refresh.</value>
   </data>
+  <data name="ttServers" xml:space="preserve">
+    <value>Pinned servers.</value>
+  </data>
   <data name="ttShowAllHiddenElements" xml:space="preserve">
     <value>Show all hidden files and folders</value>
   </data>
@@ -245,13 +304,19 @@ Do you want to restart the application?</value>
   <data name="ttSynchronizationStatus" xml:space="preserve">
     <value>Synchronization status.</value>
   </data>
-  <data name="WindowTitleAccounts" xml:space="preserve">
-    <value>Pinned accounts</value>
-  </data>
   <data name="WindowTitleAddAccount" xml:space="preserve">
-    <value>Add user account</value>
+    <value>Add account</value>
+  </data>
+  <data name="WindowTitleAddServer" xml:space="preserve">
+    <value>Add server</value>
+  </data>
+  <data name="WindowTitleServers" xml:space="preserve">
+    <value>Server list</value>
   </data>
   <data name="WindowTitleSettings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="WindowTitleSignIn" xml:space="preserve">
+    <value>Sign in</value>
   </data>
 </root>

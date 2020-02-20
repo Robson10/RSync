@@ -1,24 +1,23 @@
-﻿<Window x:Class="RSync.Areas.Accounts.Views.AccountsV"
+﻿<Window x:Class="RSync.Areas.Servers.Views.ServersV"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RSync.Areas.Accounts.Views"
-        xmlns:viewmodel="clr-namespace:RSync.Areas.Accounts.ViewModels"
+        xmlns:local="clr-namespace:RSync.Areas.Servers.Views"
+        xmlns:viewmodel="clr-namespace:RSync.Areas.Servers.ViewModels"
         xmlns:localization="clr-namespace:RSync.AppResources.Localization;assembly=RSync.AppResources"
-        xmlns:classes="clr-namespace:RSync.Core.Classes;assembly=RSync.Core"
         xmlns:viewconverters="clr-namespace:RSync.ViewConverters"
         mc:Ignorable="d"
-        Title="{x:Static localization:res.WindowTitleAccounts}" Height="300" Width="450"
+        Title="{x:Static localization:res.WindowTitleServers}" Height="300" Width="450"
         >
     <Window.DataContext>
-        <viewmodel:AccountsVM />
+        <viewmodel:ServersVM />
     </Window.DataContext>
     <Window.Resources>
         <viewconverters:EnumToResourceConverter x:Key="EnumToResourceConverter" />
     </Window.Resources>
     <DockPanel>
-        <DataGrid ItemsSource="{Binding AccountsList,UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Top" 
+        <DataGrid ItemsSource="{Binding ServersList,UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Top" 
                   AutoGenerateColumns="False" RowHeight="20">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="{x:Static localization:res.colServerName}"
@@ -57,11 +56,11 @@
         </DataGrid>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Center">
             <Button Command="{Binding AddAccountCmd}" 
-                    Content="{x:Static localization:res.btnAddAccount}" />
+                    Content="{x:Static localization:res.btnAdd}" />
             <Button Command="{Binding DeleteAccountCmd}" 
-                    Content="{x:Static localization:res.btnRemoveAccount}" />
+                    Content="{x:Static localization:res.btnRemove}" />
             <Button Command="{Binding EditAccountCmd}" 
-                    Content="{x:Static localization:res.btnEditAccount}" />
+                    Content="{x:Static localization:res.btnEdit}" />
         </StackPanel>
     </DockPanel>
 </Window>

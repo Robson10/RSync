@@ -61,15 +61,6 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Accounts.
-        /// </summary>
-        public static string AccountsWindowTitle {
-            get {
-                return ResourceManager.GetString("AccountsWindowTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to RSync.
         /// </summary>
         public static string AppName {
@@ -90,27 +81,27 @@ namespace RSync.AppResources.Localization {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        public static string btnAddAccount {
+        public static string btnAdd {
             get {
-                return ResourceManager.GetString("btnAddAccount", resourceCulture);
+                return ResourceManager.GetString("btnAdd", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
-        public static string btnEditAccount {
+        public static string btnEdit {
             get {
-                return ResourceManager.GetString("btnEditAccount", resourceCulture);
+                return ResourceManager.GetString("btnEdit", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Remove.
         /// </summary>
-        public static string btnRemoveAccount {
+        public static string btnRemove {
             get {
-                return ResourceManager.GetString("btnRemoveAccount", resourceCulture);
+                return ResourceManager.GetString("btnRemove", resourceCulture);
             }
         }
         
@@ -120,6 +111,15 @@ namespace RSync.AppResources.Localization {
         public static string btnSave {
             get {
                 return ResourceManager.GetString("btnSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign in.
+        /// </summary>
+        public static string btnSignIn {
+            get {
+                return ResourceManager.GetString("btnSignIn", resourceCulture);
             }
         }
         
@@ -138,6 +138,15 @@ namespace RSync.AppResources.Localization {
         public static string btnTestConnection {
             get {
                 return ResourceManager.GetString("btnTestConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string capError {
+            get {
+                return ResourceManager.GetString("capError", resourceCulture);
             }
         }
         
@@ -205,20 +214,74 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Functionality is currently not available..
-        /// </summary>
-        public static string errNotImplementedException {
-            get {
-                return ResourceManager.GetString("errNotImplementedException", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Field cannot be empty..
         /// </summary>
         public static string ErrorFieldIsEmpty {
             get {
                 return ResourceManager.GetString("ErrorFieldIsEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0};{1};{2};{3};{4};.
+        /// </summary>
+        public static string ErrorLogFormat {
+            get {
+                return ResourceManager.GetString("ErrorLogFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date;Message;Exception;Stack trace;Source;.
+        /// </summary>
+        public static string ErrorLogHeaders {
+            get {
+                return ResourceManager.GetString("ErrorLogHeaders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An attempt was made to serialize the null object..
+        /// </summary>
+        public static string exJSonArgumentNullException {
+            get {
+                return ResourceManager.GetString("exJSonArgumentNullException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connot log null value of exception..
+        /// </summary>
+        public static string exLogNullException {
+            get {
+                return ResourceManager.GetString("exLogNullException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Functionality is currently not available..
+        /// </summary>
+        public static string exNotImplementedException {
+            get {
+                return ResourceManager.GetString("exNotImplementedException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Property {0} is null or empty..
+        /// </summary>
+        public static string exPropertyNullException {
+            get {
+                return ResourceManager.GetString("exPropertyNullException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RSA private key used to decrypt is empty..
+        /// </summary>
+        public static string exRsaPrivateKeyIsNull {
+            get {
+                return ResourceManager.GetString("exRsaPrivateKeyIsNull", resourceCulture);
             }
         }
         
@@ -268,20 +331,28 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An account was not added because an identical account has already exist..
+        ///   Looks up a localized string similar to The private key saved in the {0} file has errors. The reason may be manual modification of the file.
+        ///
+        ///Try to fix it or generate a new key. Generating a new key will prevent the encrypted data from being restored.
+        ///
+        ///Do you want to generate a new key?.
         /// </summary>
-        public static string msgAccountDuplication {
+        public static string msgCannotDeserializePrivateRsaKey {
             get {
-                return ResourceManager.GetString("msgAccountDuplication", resourceCulture);
+                return ResourceManager.GetString("msgCannotDeserializePrivateRsaKey", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Account with this login has already added..
+        ///   Looks up a localized string similar to The private key has errors.
+        ///
+        ///Contact with administrator or generate a new key. Generating a new key will prevent the encrypted data from being restored.
+        ///
+        ///Do you want to generate a new key?.
         /// </summary>
-        public static string msgAccountExist {
+        public static string msgCannotDeserializePublicRsaKey {
             get {
-                return ResourceManager.GetString("msgAccountExist", resourceCulture);
+                return ResourceManager.GetString("msgCannotDeserializePublicRsaKey", resourceCulture);
             }
         }
         
@@ -322,6 +393,63 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login already in use..
+        /// </summary>
+        public static string msgLoginInUse {
+            get {
+                return ResourceManager.GetString("msgLoginInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The private key to encrypt data was not found ({0}). 
+        ///
+        ///If you log in to a new location, you should move the file from the previous device.
+        ///
+        ///If you do not have a copy of the file, you will need to generate a new set of keys which will result in the loss of access to data on this and other devices.
+        ///
+        ///Continue?.
+        /// </summary>
+        public static string msgPrivateRsaNotFound {
+            get {
+                return ResourceManager.GetString("msgPrivateRsaNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The public key for data encryption was not found. It will be necessary to generate a new set of keys which will result in the loss of access to data.
+        ///
+        ///Continue?.
+        /// </summary>
+        public static string msgPublicRsaNotFound {
+            get {
+                return ResourceManager.GetString("msgPublicRsaNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The encryption and decryption keys do not match.
+        ///
+        ///Try to fix them or generate a new key set. Generating new keys will prevent encrypted data from being restored.
+        ///
+        ///Do you want to generate a new key set?.
+        /// </summary>
+        public static string msgRsaKeysNotMatch {
+            get {
+                return ResourceManager.GetString("msgRsaKeysNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server with this login has already added..
+        /// </summary>
+        public static string msgServerExist {
+            get {
+                return ResourceManager.GetString("msgServerExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New settings require restart the application.
         ///
         ///Do you want to restart the application?.
@@ -342,20 +470,20 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Example text..
+        /// </summary>
+        public static string testText {
+            get {
+                return ResourceManager.GetString("testText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About..
         /// </summary>
         public static string ttAbout {
             get {
                 return ResourceManager.GetString("ttAbout", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Accounts..
-        /// </summary>
-        public static string ttAccounts {
-            get {
-                return ResourceManager.GetString("ttAccounts", resourceCulture);
             }
         }
         
@@ -405,6 +533,15 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pinned servers..
+        /// </summary>
+        public static string ttServers {
+            get {
+                return ResourceManager.GetString("ttServers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show all hidden files and folders.
         /// </summary>
         public static string ttShowAllHiddenElements {
@@ -441,20 +578,29 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pinned accounts.
-        /// </summary>
-        public static string WindowTitleAccounts {
-            get {
-                return ResourceManager.GetString("WindowTitleAccounts", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add user account.
+        ///   Looks up a localized string similar to Add account.
         /// </summary>
         public static string WindowTitleAddAccount {
             get {
                 return ResourceManager.GetString("WindowTitleAddAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add server.
+        /// </summary>
+        public static string WindowTitleAddServer {
+            get {
+                return ResourceManager.GetString("WindowTitleAddServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server list.
+        /// </summary>
+        public static string WindowTitleServers {
+            get {
+                return ResourceManager.GetString("WindowTitleServers", resourceCulture);
             }
         }
         
@@ -464,6 +610,15 @@ namespace RSync.AppResources.Localization {
         public static string WindowTitleSettings {
             get {
                 return ResourceManager.GetString("WindowTitleSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign in.
+        /// </summary>
+        public static string WindowTitleSignIn {
+            get {
+                return ResourceManager.GetString("WindowTitleSignIn", resourceCulture);
             }
         }
     }

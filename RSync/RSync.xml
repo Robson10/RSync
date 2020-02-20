@@ -18,11 +18,11 @@
             </summary>
             <param name="e"></param>
         </member>
-        <member name="M:RSync.App.SetCurrentAppCulture(RSync.Core.Enumerations.AppLanguage)">
+        <member name="M:RSync.App.SetCurrentAppCulture(System.Nullable{System.Int32})">
             <summary>
             Application and Resource(res.resx) culture is set based on language parameter.
             </summary>
-            <param name="language"></param>
+            <param name="UserId"></param>
         </member>
         <member name="M:RSync.App.InitializeComponent">
             <summary>
@@ -34,226 +34,174 @@
             Application Entry Point.
             </summary>
         </member>
-        <member name="T:RSync.Areas.Accounts.ViewModels.AccountsVM">
+        <member name="T:RSync.Areas.Login.ViewModels.AddAccountVM">
             <summary>
-            View model used to handle account operations.
+            Add account view model.
             </summary>
         </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AccountsVM.AccountsWindowTitle">
-            <summary>
-            Window title.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AccountsVM.AccountsList">
-            <summary>
-            Propertis to list of pinned accounts to application.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AccountsVM.AddAccountCmd">
-            <summary>
-            Add new account command.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AccountsVM.DeleteAccountCmd">
-            <summary>
-            Delete selected account command.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AccountsVM.EditAccountCmd">
-            <summary>
-            Edit current account command.
-            </summary>
-        </member>
-        <member name="M:RSync.Areas.Accounts.ViewModels.AccountsVM.#ctor">
-            <summary>
-            Default constructor.
-            </summary>
-        </member>
-        <member name="T:RSync.Areas.Accounts.ViewModels.AddAccountVM">
-            <summary>
-            View model of Add Account view.
-            </summary>
-        </member>
-        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.errorLogin">
+        <member name="F:RSync.Areas.Login.ViewModels.AddAccountVM.errorLogin">
             <summary>
             Error message for login.
             </summary>
         </member>
-        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.errorPassword">
+        <member name="F:RSync.Areas.Login.ViewModels.AddAccountVM.errorPassword">
             <summary>
             Error message for password.
             </summary>
         </member>
-        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.errorCustomName">
-            <summary>
-            Error message for password.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.ErrorLogin">
+        <member name="P:RSync.Areas.Login.ViewModels.AddAccountVM.ErrorLogin">
             <summary>
             Property to error message displayed on error during Login control validation.
             </summary>
         </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.ErrorPassword">
+        <member name="P:RSync.Areas.Login.ViewModels.AddAccountVM.ErrorPassword">
             <summary>
             Property to error message displayed on error during password control validation.
             </summary>
         </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.ErrorCustomName">
-            <summary>
-            Property to error message displayed on error during CustomName control validation.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.Error">
+        <member name="P:RSync.Areas.Login.ViewModels.AddAccountVM.Error">
             <summary>
             Default error property for IDataErrorInfo interface
             </summary>
         </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.Item(System.String)">
+        <member name="P:RSync.Areas.Login.ViewModels.AddAccountVM.Item(System.String)">
             <summary>
             Validation properties.
             </summary>
             <param name="propertyName">Name of property to validate.</param>
             <returns></returns>
         </member>
-        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.login">
+        <member name="F:RSync.Areas.Login.ViewModels.AddAccountVM.login">
             <summary>
             Login value.
             </summary>
         </member>
-        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.password">
-            <summary>
-            Encrypted password.
-            </summary>
-        </member>
-        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.customName">
-            <summary>
-            Custom name for account
-            </summary>
-        </member>
-        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.selectedServer">
-            <summary>
-            Selected server.
-            </summary>
-        </member>
-        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.testConnectionIsEnabled">
-            <summary>
-            Is enabled button TestConnection.
-            </summary>
-        </member>
-        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.testConnectionMessage">
-            <summary>
-            Message about connection result.
-            </summary>
-        </member>
-        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.isTestConnectionConnected">
-            <summary>
-            Is connection to server completed successfully.
-            </summary>
-        </member>
-        <member name="F:RSync.Areas.Accounts.ViewModels.AddAccountVM.Account">
-            <summary>
-            Complete and verified account object. Null if user abort adding account.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.Login">
+        <member name="P:RSync.Areas.Login.ViewModels.AddAccountVM.Login">
             <summary>
             Property containing value used as login in server credentials.
             </summary>
         </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.Password">
+        <member name="F:RSync.Areas.Login.ViewModels.AddAccountVM.password">
+            <summary>
+            Encrypted password.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Login.ViewModels.AddAccountVM.Password">
             <summary>
             Property containing value used as password as server credentials.
             </summary>
         </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.CustomName">
+        <member name="F:RSync.Areas.Login.ViewModels.AddAccountVM.isCredencialsCorrect">
             <summary>
-            Custom name for account given by user.
+            Is login and password correct.
             </summary>
         </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.SelectedServer">
+        <member name="P:RSync.Areas.Login.ViewModels.AddAccountVM.IsCredencialsCorrect">
             <summary>
-            Current selected server.
+            Is login and password correct.
             </summary>
         </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.TestConnectionIsEnabled">
+        <member name="P:RSync.Areas.Login.ViewModels.AddAccountVM.AddCmd">
             <summary>
-            Is enabled TestConnection button.
+            Add account command.
             </summary>
         </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.TestConnectionMessage">
-            <summary>
-            Message about connection result.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.IsCredentialsCorrect">
-            <summary>
-            Is connection to server completed successfully.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.SaveCmd">
-            <summary>
-            Save changes command.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.AbortCmd">
+        <member name="P:RSync.Areas.Login.ViewModels.AddAccountVM.AbortCmd">
             <summary>
             Abort command.
             </summary>
         </member>
-        <member name="P:RSync.Areas.Accounts.ViewModels.AddAccountVM.TestConnectionCmd">
+        <member name="P:RSync.Areas.Login.ViewModels.AddAccountVM.CloseHandle">
             <summary>
-            Test connection command.
+            Command invoked on close window.
             </summary>
         </member>
-        <member name="M:RSync.Areas.Accounts.ViewModels.AddAccountVM.#ctor">
-            <summary>
-            Default constructor of adding account view model.
-            </summary>
-        </member>
-        <member name="M:RSync.Areas.Accounts.ViewModels.AddAccountVM.Save(System.Windows.Window)">
-            <summary>
-            Save changes.
-            </summary>
-            <param name="window">Handle to close window with dialog result.</param>
-        </member>
-        <member name="M:RSync.Areas.Accounts.ViewModels.AddAccountVM.Abort(System.Windows.Window)">
-            <summary>
-            Abort action.
-            </summary>
-            <param name="window"></param>
-        </member>
-        <member name="M:RSync.Areas.Accounts.ViewModels.AddAccountVM.CloseWindow(System.Windows.Window,System.Boolean)">
-            <summary>
-            Close window with given dialog result.
-            </summary>
-            <param name="window">Handle to current window.</param>
-            <param name="dialogResult">Value for dialog result property in window.</param>
-        </member>
-        <member name="M:RSync.Areas.Accounts.ViewModels.AddAccountVM.TestConnection">
-            <summary>
-            Credentials verification by test connection to server.
-            </summary>
-        </member>
-        <member name="T:RSync.Areas.Accounts.Views.AccountsV">
-            <summary>
-            Interaction logic for AccountsV.xaml
-            </summary>
-            <summary>
-            AccountsV
-            </summary>
-        </member>
-        <member name="M:RSync.Areas.Accounts.Views.AccountsV.#ctor">
+        <member name="M:RSync.Areas.Login.ViewModels.AddAccountVM.#ctor">
             <summary>
             Default constructor.
             </summary>
         </member>
-        <member name="M:RSync.Areas.Accounts.Views.AccountsV.InitializeComponent">
+        <member name="T:RSync.Areas.Login.ViewModels.LoginVM">
             <summary>
-            InitializeComponent
+            Login view model.
             </summary>
         </member>
-        <member name="T:RSync.Areas.Accounts.Views.AddAccountV">
+        <member name="F:RSync.Areas.Login.ViewModels.LoginVM.login">
+            <summary>
+            User login to application.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Login.ViewModels.LoginVM.Login">
+            <summary>
+            User login to application.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Login.ViewModels.LoginVM.password">
+            <summary>
+            Encrypted user password to application.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Login.ViewModels.LoginVM.Password">
+            <summary>
+            User password to application
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Login.ViewModels.LoginVM.windowVisibility">
+            <summary>
+            Window visibility.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Login.ViewModels.LoginVM.WindowVisibility">
+            <summary>
+            Window visibility.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Login.ViewModels.LoginVM.SignInCmd">
+            <summary>
+            Login user command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Login.ViewModels.LoginVM.AbortCmd">
+            <summary>
+            Abort command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Login.ViewModels.LoginVM.CloseApplicationHandler">
+            <summary>
+            Command invoked to close application from called class.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Login.ViewModels.LoginVM.LoginSuccesHandler">
+            <summary>
+            Command invoked after log in.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Login.ViewModels.LoginVM.AddAccountCmd">
+            <summary>
+            Add user account command.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.AddAccount">
+            <summary>
+            Open window to adding new user.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.Abort">
+            <summary>
+            Abort user logging.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.SignIn">
+            <summary>
+            Logging user to application.
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.Login.Views.AddAccountV">
             <summary>
             Interaction logic for AddAccountV.xaml
             </summary>
@@ -261,12 +209,30 @@
             AddAccountV
             </summary>
         </member>
-        <member name="M:RSync.Areas.Accounts.Views.AddAccountV.#ctor">
+        <member name="M:RSync.Areas.Login.Views.AddAccountV.#ctor">
             <summary>
-            Default AddAccount view constructor.
+            Default constructor.
             </summary>
         </member>
-        <member name="M:RSync.Areas.Accounts.Views.AddAccountV.InitializeComponent">
+        <member name="M:RSync.Areas.Login.Views.AddAccountV.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.Login.Views.LoginV">
+            <summary>
+            Interaction logic for LoginV.xaml
+            </summary>
+            <summary>
+            LoginV
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Login.Views.LoginV.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Login.Views.LoginV.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
@@ -331,7 +297,7 @@
             Visibility property of "hide all selected elements" button.
             </summary>
         </member>
-        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.AccountsCmd">
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.ServersCmd">
             <summary>
             Accounts management command.
             </summary>
@@ -463,7 +429,7 @@
             Stop action method. Hide stop button and show start button.
             </summary>
         </member>
-        <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.Accounts">
+        <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.Servers">
             <summary>
             Accounts action method. Show window to manage accounts.
             </summary>
@@ -514,14 +480,246 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:RSync.Areas.Servers.ViewModels.AddServerVM">
+            <summary>
+            Add server view model.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.AddServerVM.errorLogin">
+            <summary>
+            Error message for login.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.AddServerVM.errorPassword">
+            <summary>
+            Error message for password.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.AddServerVM.errorCustomName">
+            <summary>
+            Error message for password.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.ErrorLogin">
+            <summary>
+            Property to error message displayed on error during Login control validation.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.ErrorPassword">
+            <summary>
+            Property to error message displayed on error during password control validation.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.ErrorCustomName">
+            <summary>
+            Property to error message displayed on error during CustomName control validation.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.Error">
+            <summary>
+            Default error property for IDataErrorInfo interface
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.Item(System.String)">
+            <summary>
+            Validation properties.
+            </summary>
+            <param name="propertyName">Name of property to validate.</param>
+            <returns></returns>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.AddServerVM.login">
+            <summary>
+            Login value.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.AddServerVM.password">
+            <summary>
+            Encrypted password.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.AddServerVM.customName">
+            <summary>
+            Custom name for server.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.AddServerVM.selectedServer">
+            <summary>
+            Selected server.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.AddServerVM.testConnectionIsEnabled">
+            <summary>
+            Is enabled button TestConnection.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.AddServerVM.testConnectionMessage">
+            <summary>
+            Message about connection result.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.AddServerVM.isTestConnectionConnected">
+            <summary>
+            Is connection to server completed successfully.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.AddServerVM.Server">
+            <summary>
+            Complete and verified server object. Null if user abort adding server.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.Login">
+            <summary>
+            Property containing value used as login in server credentials.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.Password">
+            <summary>
+            Property containing value used as password as server credentials.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.CustomName">
+            <summary>
+            Custom name for server given by user.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.SelectedServer">
+            <summary>
+            Current selected server type.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.TestConnectionIsEnabled">
+            <summary>
+            Is enabled TestConnection button.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.TestConnectionMessage">
+            <summary>
+            Message about connection result.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.IsCredentialsCorrect">
+            <summary>
+            Is connection to server completed successfully.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.SaveCmd">
+            <summary>
+            Save changes command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.AbortCmd">
+            <summary>
+            Abort command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.AddServerVM.TestConnectionCmd">
+            <summary>
+            Test connection command.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Servers.ViewModels.AddServerVM.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Servers.ViewModels.AddServerVM.Save(System.Windows.Window)">
+            <summary>
+            Save changes.
+            </summary>
+            <param name="window">Handle to close window with dialog result.</param>
+        </member>
+        <member name="M:RSync.Areas.Servers.ViewModels.AddServerVM.Abort(System.Windows.Window)">
+            <summary>
+            Abort action.
+            </summary>
+            <param name="window"></param>
+        </member>
+        <member name="M:RSync.Areas.Servers.ViewModels.AddServerVM.CloseWindow(System.Windows.Window,System.Boolean)">
+            <summary>
+            Close window with given dialog result.
+            </summary>
+            <param name="window">Handle to current window.</param>
+            <param name="dialogResult">Value for dialog result property in window.</param>
+        </member>
+        <member name="M:RSync.Areas.Servers.ViewModels.AddServerVM.TestConnection">
+            <summary>
+            Credentials verification by test connection to server.
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.Servers.ViewModels.ServersVM">
+            <summary>
+            Servers window view model.
+            </summary>
+        </member>
+        <member name="F:RSync.Areas.Servers.ViewModels.ServersVM.servers">
+            <summary>
+            List of pinned servers to application.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.ServersVM.Servers">
+            <summary>
+            Propertis to list of pinned servers to application.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.ServersVM.AddServerCmd">
+            <summary>
+            Add new server command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.ServersVM.DeleteServerCmd">
+            <summary>
+            Delete selected server command.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Servers.ViewModels.ServersVM.EditServerCmd">
+            <summary>
+            Edit current server command.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Servers.ViewModels.ServersVM.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.Servers.Views.AddServerV">
+            <summary>
+            Interaction logic for AddServerV.xaml
+            </summary>
+            <summary>
+            AddServerV
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Servers.Views.AddServerV.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Servers.Views.AddServerV.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:RSync.Areas.Servers.Views.ServersV">
+            <summary>
+            Interaction logic for ServersV.xaml
+            </summary>
+            <summary>
+            ServersV
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Servers.Views.ServersV.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Servers.Views.ServersV.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:RSync.Areas.Settings.ViewModels.SettingsVM">
             <summary>
             View model for setting window.
-            </summary>
-        </member>
-        <member name="F:RSync.Areas.Settings.ViewModels.SettingsVM._selectedAppLanguage">
-            <summary>
-            Selected application language.
             </summary>
         </member>
         <member name="P:RSync.Areas.Settings.ViewModels.SettingsVM.SelectedAppLanguage">

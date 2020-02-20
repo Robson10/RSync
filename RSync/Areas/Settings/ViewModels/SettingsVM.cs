@@ -1,11 +1,14 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using RSync.AppResources.Localization;
-using RSync.Core.Classes;
 using RSync.Core.Enumerations;
+using RSync.Core.Extends;
+using RSync.Helpers;
+using RSync.Logic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Windows;
-
+using db = RSync.Domain.Model;
 namespace RSync.Areas.Settings.ViewModels
 {
     /// <summary>
@@ -13,18 +16,25 @@ namespace RSync.Areas.Settings.ViewModels
     /// </summary>
     internal class SettingsVM : BindableBase
     {
-        /// <summary>
-        /// Selected application language.
-        /// </summary>
-        private AppLanguage _selectedAppLanguage = Singleton.Settings.AppLanguage;
+        private db.Settings settings;
+
+        public db.Settings Settings
+        {
+            get => settings;
+            set => SetProperty(ref settings, value);
+        }
 
         /// <summary>
         /// Selected application language property.
         /// </summary>
         public AppLanguage SelectedAppLanguage
         {
-            get => _selectedAppLanguage;
-            set => SetProperty(ref _selectedAppLanguage, value);
+            get => Settings.AppLanguage;
+            set
+            {
+                Settings.AppLanguage = value;
+                RaisePropertyChanged(nameof(SelectedAppLanguage));
+            }
         }
 
         /// <summary>
@@ -44,6 +54,24 @@ namespace RSync.Areas.Settings.ViewModels
         {
             SaveCmd = new DelegateCommand<Window>(Save);
             AbortCmd = new DelegateCommand<Window>(Abort);
+            Init();
+        }
+
+        private void Init()
+        {
+            db.Settings settings = SettingsLogic.GetSettings(Singleton.UserId);
+            if (settings == null)
+            {
+                if (Singleton.UserId.HasValue)
+                {
+                    SettingsLogic.AddSettings(
+                        new db.Settings(
+                            Singleton.UserId.Value,
+                            EnumUtil.GetEnumByDescription<AppLanguage>(typeof(AppLanguage), CultureInfo.CurrentCulture.Name)
+                        ));
+                }
+            }
+            Settings = SettingsLogic.GetSettings(Singleton.UserId);
         }
 
         /// <summary>
@@ -56,7 +84,7 @@ namespace RSync.Areas.Settings.ViewModels
 
             if (anyPropertyChanged)
             {
-                Singleton.Settings.SaveChanges();
+                SettingsLogic.UpdateSetings(Settings);
                 if (isRestartRequaire)
                 {
                     if (MessageBox.Show(res.msgSettingsRequireRestartApplication, "", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
@@ -90,13 +118,20 @@ namespace RSync.Areas.Settings.ViewModels
         {
             anyPropertyChanged = false;
             restartRequired = false;
+            db.Settings previusSettings = SettingsLogic.GetSettings(Singleton.UserId);
 
-            if (Singleton.Settings.AppLanguage != SelectedAppLanguage)
+            if (previusSettings == null)
             {
-                Singleton.Settings.AppLanguage = SelectedAppLanguage;
-
                 anyPropertyChanged = true;
                 restartRequired = true;
+            }
+            else
+            {
+                if (SelectedAppLanguage != previusSettings.AppLanguage)
+                {
+                    anyPropertyChanged = true;
+                    restartRequired = true;
+                }
             }
         }
 

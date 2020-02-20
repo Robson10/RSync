@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using RSync.AppResources.Localization;
+using System.IO;
 using System.Reflection;
 
 namespace RSync.AppResources.Configuration
@@ -47,14 +48,14 @@ namespace RSync.AppResources.Configuration
         }
 
         /// <summary>
-        /// Path to file containing RSA public key. Create empty file if not exist.
+        /// Path to Data folder. Create folder if not exist.
         /// </summary>
-        public static string RsaPublicKeyFilePath
+        public static string DataFolderPath
         {
             get
             {
-                string path = string.Format(@"{0}\{1}", ConfigurationFolderPath, config.RsaPublicKeyFileName);
-                CreateFileIfNotExist(path);
+                string path = string.Format(@"{0}\{1}", AppPath, config.DataFolderName);
+                CreateFolderIfNotExist(path);
 
                 return path;
             }
@@ -68,7 +69,27 @@ namespace RSync.AppResources.Configuration
             get
             {
                 string path = string.Format(@"{0}\{1}", ConfigurationFolderPath, config.RsaPrivateKeyFileName);
-                CreateFileIfNotExist(path);               
+                CreateFileIfNotExist(path);
+
+                return path;
+            }
+        }
+
+        /// <summary>
+        /// Path to file containing error logs. Create empty file if not exist.
+        /// </summary>
+        public static string LogFilePath
+        {
+            get
+            {
+                string path = string.Format(@"{0}\{1}", DataFolderPath, config.LogFileName);
+                
+                bool isExist = CreateFileIfNotExist(path);
+                
+                if(!isExist)
+                {
+                    File.WriteAllText(path, res.ErrorLogHeaders);
+                }
 
                 return path;
             }
@@ -78,24 +99,33 @@ namespace RSync.AppResources.Configuration
         /// Verify if folder exist. If not exist create new empty file.
         /// </summary>
         /// <param name="path"></param>
-        private static void CreateFolderIfNotExist(string path)
+        private static bool CreateFolderIfNotExist(string path)
         {
-            if(!Directory.Exists(path))
+            bool isExist = Directory.Exists(path);
+
+            if (!isExist)
             {
                 Directory.CreateDirectory(path);
             }
+
+            return isExist;
         }
 
         /// <summary>
         /// Verify if file exist. If not exist create new empty file.
         /// </summary>
         /// <param name="path">Full path to expected file</param>
-        private static void CreateFileIfNotExist(string path)
+        private static bool CreateFileIfNotExist(string path)
         {
-            if (!File.Exists(path))
+            bool isExist = File.Exists(path);
+            
+            if (!isExist)
             {
                 File.Create(path).Close();
             }
+            
+            return isExist;
+
         }
     }
 }

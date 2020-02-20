@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace RSync.Areas.Accounts.Views
+namespace RSync.Areas.Login.Views
 {
     /// <summary>
     /// Interaction logic for AddAccountV.xaml
@@ -8,7 +8,7 @@ namespace RSync.Areas.Accounts.Views
     public partial class AddAccountV : Window
     {
         /// <summary>
-        /// Default AddAccount view constructor.
+        /// Default constructor.
         /// </summary>
         public AddAccountV()
         {
