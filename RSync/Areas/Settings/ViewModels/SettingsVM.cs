@@ -14,7 +14,7 @@ namespace RSync.Areas.Settings.ViewModels
     /// <summary>
     /// View model for setting window.
     /// </summary>
-    internal class SettingsVM : BindableBase
+    internal class SettingsVM : BindableBase, IWindowClose
     {
         private db.Settings settings;
 
@@ -94,17 +94,17 @@ namespace RSync.Areas.Settings.ViewModels
                     }
                     else
                     {
-                        CloseWindow(window, true);
+                        ((IWindowClose)this).CloseWindow(window, true);
                     }
                 }
                 else
                 {
-                    CloseWindow(window, true);
+                    ((IWindowClose)this).CloseWindow(window, true);
                 }
             }
             else
             {
-                CloseWindow(window, false);
+                ((IWindowClose)this).CloseWindow(window, false);
             }
         }
 
@@ -141,21 +141,7 @@ namespace RSync.Areas.Settings.ViewModels
         /// <param name="window"></param>
         private void Abort(Window window)
         {
-            CloseWindow(window, false);
-        }
-
-        /// <summary>
-        /// Close window with given dialog result.
-        /// </summary>
-        /// <param name="window">Handle to current window.</param>
-        /// <param name="dialogResult">Value for dialog result property in window.</param>
-        private void CloseWindow(Window window, bool dialogResult)
-        {
-            if (window != null)
-            {
-                window.DialogResult = dialogResult;
-                window.Close();
-            }
+            ((IWindowClose)this).CloseWindow(window, false);
         }
     }
 }

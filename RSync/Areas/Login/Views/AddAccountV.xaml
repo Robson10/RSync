@@ -1,4 +1,5 @@
 ﻿<Window x:Class="RSync.Areas.Login.Views.AddAccountV"
+        x:Name="Window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,7 +10,8 @@
         xmlns:viewconverters="clr-namespace:RSync.ViewConverters"
         xmlns:pba="clr-namespace:RSync.Helpers"
         Title="{x:Static localization:res.WindowTitleAddAccount}"
-        Height="200" Width="250" MinHeight="200" MinWidth="250">
+        Height="200" Width="250" MinHeight="200" MinWidth="250"
+        WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewmodels:AddAccountVM/>
     </Window.DataContext>
@@ -62,12 +64,12 @@
         </StackPanel>
 
         <StackPanel Style="{StaticResource ButtonsPanel}">
-            <Button IsDefault="True"
+            <Button 
                     Command="{Binding AddCmd}"
+                    CommandParameter="{Binding ElementName=Window}"
                     IsEnabled="{Binding IsCredencialsCorrect}"
                     Content="{x:Static localization:res.btnAdd}"/>
             <Button IsCancel="True"
-                    Command="{Binding AbortCmd}"
                     Content="{x:Static localization:res.btnAbort}"/>
         </StackPanel>
     </DockPanel>

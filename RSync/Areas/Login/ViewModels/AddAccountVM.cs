@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using RSync.AppResources.Configuration;
 using RSync.AppResources.Localization;
 using RSync.Core.Enumerations;
 using RSync.Core.Helpers;
@@ -14,7 +15,7 @@ namespace RSync.Areas.Login.ViewModels
     /// <summary>
     /// Add account view model.
     /// </summary>
-    public class AddAccountVM : BindableBase, IDataErrorInfo
+    public class AddAccountVM : BindableBase, IDataErrorInfo, IWindowClose
     {
         #region DataErrorInfo
 
@@ -45,7 +46,6 @@ namespace RSync.Areas.Login.ViewModels
             get => errorPassword;
             set => SetProperty(ref errorPassword, value);
         }
-
 
         /// <summary>
         /// Default error property for IDataErrorInfo interface
@@ -90,7 +90,7 @@ namespace RSync.Areas.Login.ViewModels
                         break;
                 }
 
-                IsCredencialsCorrect = !(string.IsNullOrEmpty(ErrorLogin) || string.IsNullOrEmpty(ErrorPassword));
+                IsCredencialsCorrect = string.IsNullOrEmpty(ErrorLogin) && string.IsNullOrEmpty(ErrorPassword);
 
                 return result;
             }
@@ -124,13 +124,11 @@ namespace RSync.Areas.Login.ViewModels
         {
             get
             {
-                string decryptedPassword = RsaHelper.Decrypt(password);
-                return decryptedPassword;
+                return password;
             }
             set
             {
-                string encryptedPassword = RsaHelper.Encrypt(value, Singleton.RsaPublicKey);
-                SetProperty(ref password, encryptedPassword);
+                SetProperty(ref password, value);
             }
         }
 
@@ -151,51 +149,51 @@ namespace RSync.Areas.Login.ViewModels
         /// <summary>
         /// Add account command.
         /// </summary>
-        public DelegateCommand AddCmd { get; set; }
+        public DelegateCommand<Window> AddCmd { get; set; }
 
         /// <summary>
         /// Abort command.
         /// </summary>
-        public DelegateCommand AbortCmd { get; set; }
-
-        /// <summary>
-        /// Command invoked on close window.
-        /// </summary>
-        public DelegateCommand<WindowResult> CloseHandle { get; set; }
+        public DelegateCommand<Window> AbortCmd { get; set; }
 
         /// <summary>
         /// Default constructor.
         /// </summary>
         public AddAccountVM()
         {
-            AddCmd = new DelegateCommand(Add);
-            AbortCmd = new DelegateCommand(Abort);
+            AddCmd = new DelegateCommand<Window>(Add);
+            AbortCmd = new DelegateCommand<Window>(Abort);
         }
 
-        private void Add()
+        private void Add(Window window)
         {
             if (string.IsNullOrEmpty(Login))
             {
                 MessageBox.Show(res.msgEmptyLogin, string.Empty, MessageBoxButton.OK);
             }
-
-            if (UserLogic.GetUser(Login) is object)
+            else if (UserLogic.GetUser(Login) is object)
             {
                 MessageBox.Show(res.msgLoginInUse, string.Empty, MessageBoxButton.OK);
             }
-
-            if (string.IsNullOrEmpty(Password))
+            else if (string.IsNullOrEmpty(Password))
             {
                 MessageBox.Show(res.msgEmptyPassword, string.Empty, MessageBoxButton.OK);
             }
-            User user = new User(Login, Password, RsaHelper.CreateRsaKeys());
-            UserLogic.AddUser(user);
-            CloseHandle?.Execute(WindowResult.Ok);
+            else if (RsaHelper.IsRsaPrivateKeyExist())
+            {
+                MessageBox.Show(string.Format(res.msgCannotCreateNewUser,AppPaths.RsaPrivateKeyFilePath), res.capError, MessageBoxButton.OK);
+            }
+            else
+            {
+                User user = new User(Login, Password, RsaHelper.CreateRsaKeys());
+                UserLogic.AddUser(user);
+                ((IWindowClose)this).CloseWindow(window, true);
+            }
         }
 
-        private void Abort()
+        private void Abort(Window window)
         {
-            CloseHandle?.Execute(WindowResult.Abort);
+            ((IWindowClose)this).CloseWindow(window, false);
         }
     }
 }

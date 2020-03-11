@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using RSync.Areas.Login.Views;
 using RSync.Areas.Servers.Views;
 using RSync.Areas.Settings.Views;
 using System.Windows;
@@ -62,7 +63,12 @@ namespace RSync.Areas.MainWindow.ViewModels
         #region commands
 
         /// <summary>
-        /// Accounts management command.
+        /// Sign in command.
+        /// </summary>
+        public DelegateCommand SignInCmd { get; private set; }
+
+        /// <summary>
+        /// Servers management command.
         /// </summary>
         public DelegateCommand ServersCmd { get; private set; }
 
@@ -116,9 +122,14 @@ namespace RSync.Areas.MainWindow.ViewModels
         #region Handlers
 
         /// <summary>
-        /// Handler invoked by AccountsCmd on completed default code.
+        /// Handler invoked by SignInCmd on completed default code.
         /// </summary>
-        public DelegateCommand AccountsHandler { get; set; }
+        public DelegateCommand SignInHandler { get; set; }
+
+        /// <summary>
+        /// Handler invoked by ServersCmd on completed default code.
+        /// </summary>
+        public DelegateCommand ServerHandler { get; set; }
 
         /// <summary>
         /// Handler invoked by RefreshCmd on completed default code.
@@ -172,6 +183,7 @@ namespace RSync.Areas.MainWindow.ViewModels
         /// </summary>
         public ToolBarVM()
         {
+            SignInCmd = new DelegateCommand(SignIn);
             RefreshCmd = new DelegateCommand(Refresh);
             StartCmd = new DelegateCommand(Start);
             StopCmd = new DelegateCommand(Stop);
@@ -236,18 +248,26 @@ namespace RSync.Areas.MainWindow.ViewModels
             StopHandler?.Execute();
         }
 
+        private void SignIn()
+        {
+            LoginV loginV = new LoginV();
+
+            if (loginV.ShowDialog() == true)
+            {
+                SignInHandler?.Execute();
+            }
+        }
+
         /// <summary>
-        /// Accounts action method. Show window to manage accounts.
+        /// Servers action method. Show window to manage servers.
         /// </summary>
         private void Servers()
         {
             ServersV serversV = new ServersV();
-            if(serversV.ShowDialog() ==true)
+            if (serversV.ShowDialog() == true)
             {
-
+                ServerHandler?.Execute();
             }
-
-            AccountsHandler?.Execute();
         }
 
         /// <summary>
@@ -259,9 +279,8 @@ namespace RSync.Areas.MainWindow.ViewModels
 
             if (settingsV.ShowDialog() == true)
             {
+                OptionsHandler?.Execute();
             }
-
-            OptionsHandler?.Execute();
         }
 
         /// <summary>

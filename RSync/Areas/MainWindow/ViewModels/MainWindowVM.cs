@@ -1,8 +1,12 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
-using RSync.Areas.Login.ViewModels;
-using RSync.Areas.Login.Views;
+using RSync.AppResources.Localization;
+using RSync.Areas.MainWindow.Views;
+using RSync.Core.Helpers;
 using System;
+using System.Globalization;
+using System.Windows;
+using System.Windows.Threading;
 
 namespace RSync.Areas.MainWindow.ViewModels
 {
@@ -12,33 +16,45 @@ namespace RSync.Areas.MainWindow.ViewModels
     internal sealed class MainWindowVM : BindableBase
     {
         /// <summary>
-        /// Property to display application title
+        /// Sign in command.
         /// </summary>
-        public static string WindowTitle => AppDomain.CurrentDomain.FriendlyName;
+        public DelegateCommand SignInCmd { get; set; }
+
+        /// <summary>
+        /// Tool bar view model.
+        /// </summary>
+        public ToolBarVM ToolBarVM { get; set; }
 
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public MainWindowVM()
+        public MainWindowVM(ToolBarV toolBarV)
         {
-            LoginV loginV = new LoginV();
-            if (loginV.DataContext != null)
+            if(toolBarV ==null || toolBarV.DataContext == null)
             {
-                (loginV.DataContext as LoginVM).LoginSuccesHandler = new DelegateCommand(() => loginV.Close());
-                (loginV.DataContext as LoginVM).CloseApplicationHandler = new DelegateCommand(CloseApp);
+                ArgumentNullException ex = new ArgumentNullException(res.exArgumentNullException);
+                LogHelper.LogError(ex, CultureInfo.CurrentCulture);
+                throw ex;
             }
 
-            if (loginV.ShowDialog() == false)
+            if (toolBarV.DataContext is ToolBarVM toolBarVM)
             {
+                ToolBarVM = toolBarVM;
             }
+            else
+            {
+                MessageBox.Show(res.exDataContextTypeException, res.capError, MessageBoxButton.OK);
+                InvalidCastException ex = new InvalidCastException(string.Format(res.exDataContextTypeException, typeof(ToolBarVM), typeof(ToolBarV)));
+                LogHelper.LogError(ex, CultureInfo.CurrentCulture);
+                throw ex;
+            }
+
+            SignInCmd = new DelegateCommand(SignIn);
         }
-        public void CloseApp()
+
+        private void SignIn()
         {
-            try
-            {
-                App.Current.Shutdown();
-            }
-            catch { }
+            ToolBarVM.SignInCmd?.Execute();
         }
     }
 }

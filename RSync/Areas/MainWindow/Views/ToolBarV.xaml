@@ -22,6 +22,10 @@
         </Style>
     </UserControl.Resources>
     <ToolBar DockPanel.Dock="Top" Background="DimGray">
+        <Button Command="{Binding SignInCmd}"
+                ToolTip="{x:Static localization:res.ttSignIn}" Style="{StaticResource ToolBarButtonStyle}">
+            <Image Source="pack://siteoforigin:,,,/Icons/SignIn.png" Style="{StaticResource ImageStyle}" />
+        </Button>        
         <Button Command="{Binding ServersCmd}"
                 ToolTip="{x:Static localization:res.ttServers}" Style="{StaticResource ToolBarButtonStyle}">
             <Image Source="pack://siteoforigin:,,,/Icons/Account.png" Style="{StaticResource ImageStyle}" />

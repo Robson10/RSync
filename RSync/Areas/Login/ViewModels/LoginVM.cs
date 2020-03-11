@@ -9,20 +9,20 @@ using RSync.Core.Helpers;
 using RSync.Domain.Model;
 using RSync.Helpers;
 using RSync.Logic;
-using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Security.Cryptography;
-using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
+using System;
 
 namespace RSync.Areas.Login.ViewModels
 {
     /// <summary>
     /// Login view model.
     /// </summary>
-    public class LoginVM : BindableBase
+    public class LoginVM : BindableBase, IWindowClose, IWindowVisible
     {
         /// <summary>
         /// User login to application.
@@ -35,7 +35,11 @@ namespace RSync.Areas.Login.ViewModels
         public string Login
         {
             get { return login; }
-            set { SetProperty(ref login, value); }
+            set
+            {
+                SetProperty(ref login, value);
+                SetVisibilityMessageWrongCredentials(Visibility.Hidden);
+            }
         }
 
         /// <summary>
@@ -55,6 +59,7 @@ namespace RSync.Areas.Login.ViewModels
             set
             {
                 SetProperty(ref password, value);
+                SetVisibilityMessageWrongCredentials(Visibility.Hidden);
             }
         }
 
@@ -73,38 +78,48 @@ namespace RSync.Areas.Login.ViewModels
         }
 
         /// <summary>
+        /// Visibility for control displayed message about wrong credentials.
+        /// </summary>
+        private Visibility wrongCredentialsVisibility;
+
+        /// <summary>
+        /// Visibility for control displayed message about wrong credentials.
+        /// </summary>
+        public Visibility WrongCredentialsVisibility
+        {
+            get
+            {
+                return wrongCredentialsVisibility;
+            }
+            set
+            {
+                SetProperty(ref wrongCredentialsVisibility, value);
+            }
+        }
+
+        /// <summary>
         /// Login user command.
         /// </summary>
-        public DelegateCommand SignInCmd { get; set; }
+        public DelegateCommand<Window> SignInCmd { get; set; }
 
         /// <summary>
         /// Abort command.
         /// </summary>
-        public DelegateCommand AbortCmd { get; set; }
-
-        /// <summary>
-        /// Command invoked to close application from called class.
-        /// </summary>
-        public ICommand CloseApplicationHandler { get; set; }
-
-        /// <summary>
-        /// Command invoked after log in.
-        /// </summary>
-        public ICommand LoginSuccesHandler { get; set; }
+        public DelegateCommand<Window> AbortCmd { get; set; }
 
         /// <summary>
         /// Add user account command.
         /// </summary>
-        public DelegateCommand AddAccountCmd { get; set; }
+        public DelegateCommand<Window> AddAccountCmd { get; set; }
 
         /// <summary>
         /// Default constructor.
         /// </summary>
         public LoginVM()
         {
-            SignInCmd = new DelegateCommand(SignIn);
-            AbortCmd = new DelegateCommand(Abort);
-            AddAccountCmd = new DelegateCommand(AddAccount);
+            SignInCmd = new DelegateCommand<Window>(SignIn);
+            AbortCmd = new DelegateCommand<Window>(Abort);
+            AddAccountCmd = new DelegateCommand<Window>(AddAccount);
 #if DEBUG
             Login = "Harry";
             Password = "123";
@@ -114,31 +129,30 @@ namespace RSync.Areas.Login.ViewModels
         /// <summary>
         /// Open window to adding new user.
         /// </summary>
-        private void AddAccount()
+        private void AddAccount(Window window)
         {
-            WindowVisibility = Visibility.Hidden;
+            ((IWindowVisible)this).HideWindow(window, Visibility.Hidden);
             AddAccountV addAccount = new AddAccountV();
             addAccount.ShowDialog();
-            WindowVisibility = Visibility.Visible;
+            ((IWindowVisible)this).HideWindow(window, Visibility.Visible);
         }
 
         /// <summary>
         /// Abort user logging.
         /// </summary>
-        private void Abort()
+        private void Abort(Window window)
         {
-            if (CloseApplicationHandler != null)
-                CloseApplicationHandler.Execute(null);
+            ((IWindowClose)this).CloseWindow(window, false);
         }
 
         /// <summary>
         /// Logging user to application.
         /// </summary>
-        private void SignIn()
+        private void SignIn(Window window)
         {
             User user = UserLogic.GetUser(Login, Password);
 
-            if (user is object)
+            if (user != null)
             {
                 if (!ValidateUserRsaKeys(user))
                 {
@@ -147,13 +161,20 @@ namespace RSync.Areas.Login.ViewModels
 
                 Singleton.UserId = user.UserId;
                 App.SetCurrentAppCulture(user.UserId);
-                if (LoginSuccesHandler != null)
-                {
-                    LoginSuccesHandler.Execute(null);
-                }
+
+                ((IWindowClose)this).CloseWindow(window, true);
+            }
+            else
+            {
+                SetVisibilityMessageWrongCredentials(Visibility.Visible);
             }
         }
 
+        /// <summary>
+        /// Validate is user RSA keys are correct.
+        /// </summary>
+        /// <param name="user">User object.</param>
+        /// <returns>Is RSA private and public key are correct.</returns>
         private bool ValidateUserRsaKeys(User user)
         {
             if (!ValidatePrivateKey(user))
@@ -177,6 +198,11 @@ namespace RSync.Areas.Login.ViewModels
             return true;
         }
 
+        /// <summary>
+        /// Copy user public RSA key to application singleton class.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         private bool CopyPublicKey(User user)
         {
             if (user != null)
@@ -208,6 +234,11 @@ namespace RSync.Areas.Login.ViewModels
             return false;
         }
 
+        /// <summary>
+        /// Validate RSA private key or create it if not exist after user approve.
+        /// </summary>
+        /// <param name="user">User object.</param>
+        /// <returns></returns>
         private bool ValidatePrivateKey(User user)
         {
             if (user != null)
@@ -238,19 +269,46 @@ namespace RSync.Areas.Login.ViewModels
                     }
                 }
             }
+
             return false;
         }
 
+        /// <summary>
+        /// Create new Rsa Keys.
+        /// </summary>
+        /// <param name="user"></param>
         private void CrateNewRsaKeys(User user)
         {
-            user.SerializedRsaParameter= RsaHelper.CreateRsaKeys();
+            user.SerializedRsaParameter = RsaHelper.CreateRsaKeys();
             UserLogic.UpdateUser(user);
             RemoveOldEncryptedData();
         }
 
+        /// <summary>
+        /// Remove old data from database related to old RSA keys.
+        /// </summary>
         private void RemoveOldEncryptedData()
         {
             //TODO:Implement removing old encrypted data.
+        }
+
+        /// <summary>
+        /// Set visibility of control containing message about wrong credentials.
+        /// </summary>
+        /// <param name="visibility">Control visibility.</param>
+        private void SetVisibilityMessageWrongCredentials(Visibility visibility)
+        {
+            if (visibility == Visibility.Collapsed || visibility == Visibility.Hidden)
+            {
+                if (WrongCredentialsVisibility != Visibility.Hidden)
+                {
+                    WrongCredentialsVisibility = Visibility.Hidden;
+                }
+            }
+            else
+            {
+                WrongCredentialsVisibility = Visibility.Visible;
+            }
         }
     }
 }

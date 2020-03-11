@@ -59,6 +59,9 @@
     <None Update="Icons\Show.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Icons\SignIn.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Icons\Start.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

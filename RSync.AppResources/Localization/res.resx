@@ -177,6 +177,14 @@
   <data name="ErrorLogHeaders" xml:space="preserve">
     <value>Date;Message;Exception;Stack trace;Source;</value>
   </data>
+  <data name="exArgumentNullException" xml:space="preserve">
+    <value>An unexpected error has occurred. The application will close.</value>
+  </data>
+  <data name="exDataContextTypeException" xml:space="preserve">
+    <value>A fatal error has occurred. The application will be closed.
+
+Expected data context of type {0} for object {1}</value>
+  </data>
   <data name="exJSonArgumentNullException" xml:space="preserve">
     <value>An attempt was made to serialize the null object.</value>
   </data>
@@ -206,6 +214,12 @@
   </data>
   <data name="lblServer" xml:space="preserve">
     <value>Server :</value>
+  </data>
+  <data name="msgCannotCreateNewUser" xml:space="preserve">
+    <value>Unable to create user.
+
+Make a backup copy of the {0} file and then delete it to create the user.
+If the user loses the above file, he will lose access to most of the data.</value>
   </data>
   <data name="msgCannotDeserializePrivateRsaKey" xml:space="preserve">
     <value>The private key saved in the {0} file has errors. The reason may be manual modification of the file.
@@ -268,6 +282,9 @@ Do you want to restart the application?</value>
   <data name="msgTestConnectionConnected" xml:space="preserve">
     <value>Test completed successfully.</value>
   </data>
+  <data name="msgWrongCredentials" xml:space="preserve">
+    <value>Wrong login or password.</value>
+  </data>
   <data name="testText" xml:space="preserve">
     <value>Example text.</value>
   </data>
@@ -294,6 +311,9 @@ Do you want to restart the application?</value>
   </data>
   <data name="ttShowAllHiddenElements" xml:space="preserve">
     <value>Show all hidden files and folders</value>
+  </data>
+  <data name="ttSignIn" xml:space="preserve">
+    <value>Sign in.</value>
   </data>
   <data name="ttStart" xml:space="preserve">
     <value>Resume application working.</value>

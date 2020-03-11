@@ -14,7 +14,7 @@ namespace RSync.Areas.Servers.ViewModels
     /// <summary>
     /// Add server view model.
     /// </summary>
-    internal class AddServerVM : BindableBase, IDataErrorInfo
+    internal class AddServerVM : BindableBase, IDataErrorInfo, IWindowClose
     {
         #region DataErrorInfo
 
@@ -186,7 +186,7 @@ namespace RSync.Areas.Servers.ViewModels
             }
             set
             {
-                string encryptedPassword = RsaHelper.Encrypt(value,Singleton.RsaPublicKey);
+                string encryptedPassword = RsaHelper.Encrypt(value, Singleton.RsaPublicKey);
                 SetProperty(ref password, encryptedPassword);
                 IsCredentialsCorrect = false;
             }
@@ -287,7 +287,7 @@ namespace RSync.Areas.Servers.ViewModels
                 Server = new Server(Login, Password, CustomName, SelectedServer, false);
             }
 
-            CloseWindow(window, true);
+            ((IWindowClose)this).CloseWindow(window, true);
         }
 
         /// <summary>
@@ -296,21 +296,7 @@ namespace RSync.Areas.Servers.ViewModels
         /// <param name="window"></param>
         private void Abort(Window window)
         {
-            CloseWindow(window, false);
-        }
-
-        /// <summary>
-        /// Close window with given dialog result.
-        /// </summary>
-        /// <param name="window">Handle to current window.</param>
-        /// <param name="dialogResult">Value for dialog result property in window.</param>
-        private void CloseWindow(Window window, bool dialogResult)
-        {
-            if (window != null)
-            {
-                window.DialogResult = dialogResult;
-                window.Close();
-            }
+            ((IWindowClose)this).CloseWindow(window, false);
         }
 
         /// <summary>

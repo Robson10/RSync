@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RSync.Areas.MainWindow.Views"
         xmlns:viewmodels="clr-namespace:RSync.Areas.MainWindow.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:localization="clr-namespace:RSync.AppResources.Localization;assembly=RSync.AppResources"
         mc:Ignorable="d"
-        Title="{x:Static localization:res.AppName}" Height="250" Width="400">
-    <Window.DataContext>
-        <viewmodels:MainWindowVM />
-    </Window.DataContext>
+        Title="{x:Static localization:res.AppName}" 
+        Height="400" Width="450"
+        WindowStartupLocation="CenterScreen">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding SignInCmd}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <DockPanel Background="DimGray">
         <local:ToolBarV x:Name="ToolBarV" DockPanel.Dock="Top" Height="40" VerticalAlignment="Top" />
+        <Label Content="{x:Static localization:res.testText}" />
     </DockPanel>
 </Window>

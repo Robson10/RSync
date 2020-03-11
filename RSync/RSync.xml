@@ -111,11 +111,6 @@
             Abort command.
             </summary>
         </member>
-        <member name="P:RSync.Areas.Login.ViewModels.AddAccountVM.CloseHandle">
-            <summary>
-            Command invoked on close window.
-            </summary>
-        </member>
         <member name="M:RSync.Areas.Login.ViewModels.AddAccountVM.#ctor">
             <summary>
             Default constructor.
@@ -156,6 +151,16 @@
             Window visibility.
             </summary>
         </member>
+        <member name="F:RSync.Areas.Login.ViewModels.LoginVM.wrongCredentialsVisibility">
+            <summary>
+            Visibility for control displayed message about wrong credentials.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.Login.ViewModels.LoginVM.WrongCredentialsVisibility">
+            <summary>
+            Visibility for control displayed message about wrong credentials.
+            </summary>
+        </member>
         <member name="P:RSync.Areas.Login.ViewModels.LoginVM.SignInCmd">
             <summary>
             Login user command.
@@ -164,16 +169,6 @@
         <member name="P:RSync.Areas.Login.ViewModels.LoginVM.AbortCmd">
             <summary>
             Abort command.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Login.ViewModels.LoginVM.CloseApplicationHandler">
-            <summary>
-            Command invoked to close application from called class.
-            </summary>
-        </member>
-        <member name="P:RSync.Areas.Login.ViewModels.LoginVM.LoginSuccesHandler">
-            <summary>
-            Command invoked after log in.
             </summary>
         </member>
         <member name="P:RSync.Areas.Login.ViewModels.LoginVM.AddAccountCmd">
@@ -186,20 +181,58 @@
             Default constructor.
             </summary>
         </member>
-        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.AddAccount">
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.AddAccount(System.Windows.Window)">
             <summary>
             Open window to adding new user.
             </summary>
         </member>
-        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.Abort">
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.Abort(System.Windows.Window)">
             <summary>
             Abort user logging.
             </summary>
         </member>
-        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.SignIn">
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.SignIn(System.Windows.Window)">
             <summary>
             Logging user to application.
             </summary>
+        </member>
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.ValidateUserRsaKeys(RSync.Domain.Model.User)">
+            <summary>
+            Validate is user RSA keys are correct.
+            </summary>
+            <param name="user">User object.</param>
+            <returns>Is RSA private and public key are correct.</returns>
+        </member>
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.CopyPublicKey(RSync.Domain.Model.User)">
+            <summary>
+            Copy user public RSA key to application singleton class.
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.ValidatePrivateKey(RSync.Domain.Model.User)">
+            <summary>
+            Validate RSA private key or create it if not exist after user approve.
+            </summary>
+            <param name="user">User object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.CrateNewRsaKeys(RSync.Domain.Model.User)">
+            <summary>
+            Create new Rsa Keys.
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.RemoveOldEncryptedData">
+            <summary>
+            Remove old data from database related to old RSA keys.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.Login.ViewModels.LoginVM.SetVisibilityMessageWrongCredentials(System.Windows.Visibility)">
+            <summary>
+            Set visibility of control containing message about wrong credentials.
+            </summary>
+            <param name="visibility">Control visibility.</param>
         </member>
         <member name="T:RSync.Areas.Login.Views.AddAccountV">
             <summary>
@@ -242,12 +275,17 @@
             View model from MainWindow
             </summary>
         </member>
-        <member name="P:RSync.Areas.MainWindow.ViewModels.MainWindowVM.WindowTitle">
+        <member name="P:RSync.Areas.MainWindow.ViewModels.MainWindowVM.SignInCmd">
             <summary>
-            Property to display application title
+            Sign in command.
             </summary>
         </member>
-        <member name="M:RSync.Areas.MainWindow.ViewModels.MainWindowVM.#ctor">
+        <member name="P:RSync.Areas.MainWindow.ViewModels.MainWindowVM.ToolBarVM">
+            <summary>
+            Tool bar view model.
+            </summary>
+        </member>
+        <member name="M:RSync.Areas.MainWindow.ViewModels.MainWindowVM.#ctor(RSync.Areas.MainWindow.Views.ToolBarV)">
             <summary>
             Default constructor.
             </summary>
@@ -297,9 +335,14 @@
             Visibility property of "hide all selected elements" button.
             </summary>
         </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.SignInCmd">
+            <summary>
+            Sign in command.
+            </summary>
+        </member>
         <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.ServersCmd">
             <summary>
-            Accounts management command.
+            Servers management command.
             </summary>
         </member>
         <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.RefreshCmd">
@@ -347,9 +390,14 @@
             Command used to hide all elements selected by user to hide.
             </summary>
         </member>
-        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.AccountsHandler">
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.SignInHandler">
             <summary>
-            Handler invoked by AccountsCmd on completed default code.
+            Handler invoked by SignInCmd on completed default code.
+            </summary>
+        </member>
+        <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.ServerHandler">
+            <summary>
+            Handler invoked by ServersCmd on completed default code.
             </summary>
         </member>
         <member name="P:RSync.Areas.MainWindow.ViewModels.ToolBarVM.RefreshHandler">
@@ -431,7 +479,7 @@
         </member>
         <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.Servers">
             <summary>
-            Accounts action method. Show window to manage accounts.
+            Servers action method. Show window to manage servers.
             </summary>
         </member>
         <member name="M:RSync.Areas.MainWindow.ViewModels.ToolBarVM.Options">
@@ -634,13 +682,6 @@
             </summary>
             <param name="window"></param>
         </member>
-        <member name="M:RSync.Areas.Servers.ViewModels.AddServerVM.CloseWindow(System.Windows.Window,System.Boolean)">
-            <summary>
-            Close window with given dialog result.
-            </summary>
-            <param name="window">Handle to current window.</param>
-            <param name="dialogResult">Value for dialog result property in window.</param>
-        </member>
         <member name="M:RSync.Areas.Servers.ViewModels.AddServerVM.TestConnection">
             <summary>
             Credentials verification by test connection to server.
@@ -762,13 +803,6 @@
             </summary>
             <param name="window"></param>
         </member>
-        <member name="M:RSync.Areas.Settings.ViewModels.SettingsVM.CloseWindow(System.Windows.Window,System.Boolean)">
-            <summary>
-            Close window with given dialog result.
-            </summary>
-            <param name="window">Handle to current window.</param>
-            <param name="dialogResult">Value for dialog result property in window.</param>
-        </member>
         <member name="T:RSync.Areas.Settings.Views.SettingsV">
             <summary>
             Interaction logic for SettingsV.xaml
@@ -786,6 +820,30 @@
             <summary>
             InitializeComponent
             </summary>
+        </member>
+        <member name="T:RSync.Helpers.IWindowClose">
+            <summary>
+            Closing window interface for ViewModel.
+            </summary>
+        </member>
+        <member name="M:RSync.Helpers.IWindowClose.CloseWindow(System.Windows.Window,System.Boolean)">
+            <summary>
+            Close window with specified dialog result.
+            </summary>
+            <param name="window">Window.</param>
+            <param name="dialogResult">Dialog result.</param>
+        </member>
+        <member name="T:RSync.Helpers.IWindowVisible">
+            <summary>
+            Changing visible of window interface for ViewModel.
+            </summary>
+        </member>
+        <member name="M:RSync.Helpers.IWindowVisible.HideWindow(System.Windows.Window,System.Windows.Visibility)">
+            <summary>
+            Change visible of window.
+            </summary>
+            <param name="window">Window.</param>
+            <param name="visibility">Window visibility.</param>
         </member>
         <member name="T:RSync.Helpers.PasswordBoxAssistant">
             <summary>

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using RSync.Areas.MainWindow.ViewModels;
+using System.Windows;
 
 namespace RSync.Areas.MainWindow.Views
 {
@@ -13,6 +14,7 @@ namespace RSync.Areas.MainWindow.Views
         public MainWindowV()
         {
             InitializeComponent();
+            DataContext = new MainWindowVM(ToolBarV);
         }
     }
 }

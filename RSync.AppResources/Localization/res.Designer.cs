@@ -241,6 +241,26 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An unexpected error has occurred. The application will close..
+        /// </summary>
+        public static string exArgumentNullException {
+            get {
+                return ResourceManager.GetString("exArgumentNullException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A fatal error has occurred. The application will be closed.
+        ///
+        ///Expected data context of type {0} for object {1}.
+        /// </summary>
+        public static string exDataContextTypeException {
+            get {
+                return ResourceManager.GetString("exDataContextTypeException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An attempt was made to serialize the null object..
         /// </summary>
         public static string exJSonArgumentNullException {
@@ -327,6 +347,18 @@ namespace RSync.AppResources.Localization {
         public static string lblServer {
             get {
                 return ResourceManager.GetString("lblServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to create user.
+        ///
+        ///Make a backup copy of the {0} file and then delete it to create the user.
+        ///If the user loses the above file, he will lose access to most of the data..
+        /// </summary>
+        public static string msgCannotCreateNewUser {
+            get {
+                return ResourceManager.GetString("msgCannotCreateNewUser", resourceCulture);
             }
         }
         
@@ -470,6 +502,15 @@ namespace RSync.AppResources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wrong login or password..
+        /// </summary>
+        public static string msgWrongCredentials {
+            get {
+                return ResourceManager.GetString("msgWrongCredentials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Example text..
         /// </summary>
         public static string testText {
@@ -547,6 +588,15 @@ namespace RSync.AppResources.Localization {
         public static string ttShowAllHiddenElements {
             get {
                 return ResourceManager.GetString("ttShowAllHiddenElements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign in..
+        /// </summary>
+        public static string ttSignIn {
+            get {
+                return ResourceManager.GetString("ttSignIn", resourceCulture);
             }
         }
         
